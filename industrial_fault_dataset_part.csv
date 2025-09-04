@@ -1,0 +1,402 @@
+event_id,equipment_name,equipment_code,timestamp,fault_description,technician_diagnosis,maintenance_actions,root_cause_analysis,related_multimodal_data
+F-2024-0001,1#精轧机 F5机架,HRM1-RF5-MOTOR,2024/5/21 14:30,F5机架电机传来一阵阵的咔啦异响，DCS系统上振动监测值超过了二级报警线，听着声音是从驱动侧发出的。,驱动侧电机轴承内圈剥落,停机，解体电机，更换驱动侧NSK 22330CA/W33型轴承，清理轴承座，加注新润滑脂，试车后振动值恢复正常。,轴承润滑不良导致早期点蚀，在高负荷下发展为内圈剥落。,"{""vibration"": [""VIB_HRM1_RF5_DRV_20240521_1430.csv""], ""thermal_image"": [""IMG_HRM1_RF5_DRV_BEARING_20240521_1435.jpg""], ""maintenance_manual"": ""Manual_RollingMill_Motor.pdf#page=45""}"
+F-2024-0002,2#粗轧机 R2液压站,HRM2-HYD-R2,2024/5/21 16:15,液压站2号主泵出口压力突然从25MPa掉到18MPa，压力波动很大，轧机AGC厚度控制报警。,2号主泵伺服阀卡涩,切换至备用泵，在线清洗伺服阀阀芯，更换液压油滤芯。恢复2号泵运行，压力稳定。,液压油中金属颗粒污染物过多，导致伺服阀阀芯动作不灵敏。,"{""timeseries_data"": [""PLC_HRM2_HYD_PRESSURE_20240521_1610.csv""], ""oil_analysis_report"": [""REPORT_OIL_HRM2_HYD_20240520.pdf""], ""schematics"": ""Schematic_HRM2_Hydraulic_System.pdf#page=12""}"
+F-2024-0003,1#层流冷却区 3号水泵,LFC1-PUMP-03,2024/5/22 8:00,巡检发现3号冷却水泵电机接线盒处有焦糊味，用红外测温枪打了下，温度高达95度，比旁边几台高很多。,电机接线盒内电缆接头虚接，接触电阻过大导致过热。,紧急停泵，断电处理。打开接线盒，发现A相电缆接头螺丝松动，有烧蚀痕迹。重新压接并紧固电缆接头，清理接线盒。,长期振动导致接线螺丝松动，未在定检中及时发现并紧固。,"{""thermal_image"": [""IMG_LFC1_PUMP03_JUNCTIONBOX_20240522_0755.jpg""], ""electrical_drawing"": ""Drawing_E_LFC1_PUMP03.pdf"", ""maintenance_log"": ""Log_LFC1_PUMPS_Q1_2024.xlsx""}"
+F-2024-0004,卷取机 C1主传动齿轮箱,COILER1-GB-MAIN,2024/5/22 11:20,卷取机在卷一个厚规格钢卷时，齿轮箱发出沉闷的撞击声，同时主电机电流瞬间飙升导致跳闸。,主传动齿轮箱高速级小齿轮断齿,停机，吊开齿轮箱上盖，排空润滑油。检查发现高速级输入轴小齿轮断掉三齿，齿根有明显疲劳裂纹。,齿轮长期在超扭矩工况下运行，产生疲劳裂纹并最终导致断裂。,"{""vibration"": [""VIB_COILER1_GB_HS_20240522_1115.csv""], ""photo_damage"": [""PHOTO_COILER1_GEAR_BROKEN_20240522_1500.jpg""], ""oil_analysis_report"": ""REPORT_OIL_COILER1_GB_20240521.pdf""}"
+F-2024-0005,2#加热炉 4号助燃风机,FURN2-FAN-04,2024/5/23 9:40,4号助燃风机振动突然增大，从平时的2.5mm/s升到8.9mm/s，现场噪音巨大。,风机叶轮叶片存在不均匀积灰，导致转子动不平衡。,停机，打开风机壳体检查口，发现叶轮上有大量黏着的氧化铁皮积灰。使用高压水枪进行清理，并做动平衡校验。,炉内氧化铁皮被吸入风机通道，在叶片上黏着堆积。,"{""vibration"": [""VIB_FURN2_FAN04_IMPELLER_20240523_0935.csv""], ""maintenance_manual"": ""Manual_Furnace_Fan.pdf#page=28"", ""photo_internal"": ""PHOTO_FURN2_FAN04_DUST_20240523_1100.jpg""}"
+F-2024-0006,1#精轧机 F2机架,HRM1-RF2-HYD,2024/5/23 15:00,F2机架的弯辊液压缸位置反馈异常，设定值和实际值偏差超过5mm，系统频繁报警。,弯辊液压缸内置位移传感器故障,联系仪表人员，使用便携式校验仪测试传感器信号，发现信号漂移严重。更换同型号MTS位移传感器。,传感器内部电子元件老化，达到使用寿命。,"{""timeseries_data"": [""PLC_HRM1_RF2_BENDING_POS_20240523_1455.csv""], ""schematics"": ""Schematic_HRM1_Bending_System.pdf#page=5"", ""sensor_datasheet"": ""Datasheet_MTS_RHM0500MD6.pdf""}"
+F-2024-0007,2#板坯库 1号天车,CRANE-SLAB-01,2024/5/24 10:10,1号天车大车行走时，向东运行正常，向西运行时驱动轮打滑，车体歪斜严重。,西侧大车驱动电机碳刷磨损严重，导致电机输出扭矩不足。,停机，检查西侧驱动电机，发现碳刷已磨损至极限。更换全套碳刷，并清理换向器表面。,碳刷为易损件，未按照点检计划及时更换。,"{""photo_damage"": [""PHOTO_CRANE01_BRUSH_WORN_20240524_1030.jpg""], ""maintenance_log"": ""Log_CRANE_SLAB_01_2024.xlsx"", ""electrical_drawing"": ""Drawing_E_CRANE01_DRIVE.pdf""}"
+F-2024-0008,1#除鳞箱 高压水泵,DESCALER1-PUMP-HP,2024/5/24 13:45,高压水泵入口滤网压差报警，查看现场发现泵体盘根密封处大量漏水，压力上不去。,泵盘根密封老化失效,停泵泄压。拆卸盘根压盖，取出全部旧的盘根填料，清理盘根箱，更换新的石墨盘根。,盘根在高温高压水环境下长期工作，材料性能下降导致密封失效。,"{""timeseries_data"": [""PLC_DESCALER1_PUMP_PRESSURE_20240524_1340.csv""], ""photo_leak"": [""PHOTO_DESCALER1_PUMP_LEAK_20240524_1350.jpg""], ""maintenance_manual"": ""Manual_HP_Pump.pdf#page=18""}"
+F-2024-0009,2#精轧机 F1机架,HRM2-RF1-MOTOR,2024/5/25 17:00,F1电机编码器信号丢失，DCS画面上速度反馈为0，导致传动系统急停。,电机编码器电缆断裂,检查编码器接头和电缆，发现电缆在拖链出口处被磨破并断裂。更换整根编码器电缆。,电缆在拖链内布线不规范，长期往复运动导致磨损断裂。,"{""timeseries_data"": [""PLC_HRM2_RF1_SPEED_20240525_1655.csv""], ""photo_damage"": [""PHOTO_HRM2_RF1_CABLE_BROKEN_20240525_1730.jpg""], ""electrical_drawing"": ""Drawing_E_HRM2_RF1_Encoder.pdf""}"
+F-2024-0010,热送辊道 R3段,ROLLER-TABLE-R3,2024/5/26 9:00,R3段第12号辊子不转，后面的钢坯过来都卡在这里了，现场烟很大。,辊道电机减速机输出轴断裂,停机，将故障辊子吊出。解体减速机，发现输出轴从轴肩处断裂。,长期过载及冲击负荷导致金属疲劳。,"{""photo_damage"": [""PHOTO_ROLLER_R3_12_SHAFT_BROKEN_20240526_1000.jpg""], ""maintenance_manual"": ""Manual_Roller_Table_Motor.pdf#page=22"", ""maintenance_log"": ""Log_ROLLER-TABLE-R3_2024.xlsx""}"
+F-2024-0011,1#精轧机 F6机架,HRM1-RF6-BEARING,2024/5/26 14:20,F6机架操作侧工作辊轴承座温度异常升高，达到85摄氏度，润滑油回油管路观察窗内发现有少量金属屑。,操作侧工作辊轴承外圈碎裂,紧急换辊。检查换下的工作辊，发现操作侧四列圆锥滚子轴承外圈已碎裂，滚子散落。,轴承安装时预紧力过大，导致运行中异常发热，润滑失效并最终损坏。,"{""vibration"": [""VIB_HRM1_RF6_OP_20240526_1415.csv""], ""thermal_image"": [""IMG_HRM1_RF6_OP_BEARING_20240526_1425.jpg""], ""photo_damage"": [""PHOTO_HRM1_RF6_BEARING_BROKEN_20240526_1600.jpg""], ""maintenance_manual"": ""Manual_WorkRoll_Bearing.pdf#page=33""}"
+F-2024-0012,2#层流冷却区 5号阀门,LFC2-VALVE-05,2024/5/27 11:00,DCS上控制5号阀门开启，反馈位置始终为0，但现场听到阀门动作声音，且下游管道有水。,阀门电动执行器反馈连杆脱落,现场检查阀门电动执行器，发现其位置反馈模块的连接杆从阀杆上脱落。重新安装并紧固连接杆。,连接杆固定螺丝发生锈蚀松动。,"{""timeseries_data"": [""PLC_LFC2_VALVE05_CMD_FB_20240527_1055.csv""], ""photo_internal"": [""PHOTO_LFC2_VALVE05_LINK_OFF_20240527_1110.jpg""], ""schematics"": ""Schematic_LFC2_Cooling_System.pdf#page=8""}"
+F-2024-0013,1#卷取机 C2液压系统,COILER2-HYD,2024/5/27 18:30,C2卷取机助卷辊提升动作缓慢无力，无法将钢带头部抬起。,助卷辊提升缸活塞密封圈损坏（内漏）,测试系统压力正常。对提升缸进行保压测试，发现有明显内漏。解体液压缸，更换活塞Y型密封圈。,密封圈老化变硬，失去弹性，在高压下被击穿。,"{""timeseries_data"": [""PLC_COILER2_HYD_PRESSURE_ACTION_20240527_1825.csv""], ""maintenance_manual"": ""Manual_Coiler_Hydraulic.pdf#page=41"", ""schematics"": ""Schematic_COILER2_Hydraulic_System.pdf#page=15""}"
+F-2024-0014,2#精轧机 F7机架,HRM2-RF7-PLC,2024/5/28 10:00,F7机架所有信号全部丢失，DCS上显示为红色故障，导致全线跳闸。,机架I/O通讯模块电源故障,检查F7机架现场I/O站，发现通讯模块（ET200）的24V DC电源模块指示灯不亮。测量输入正常，输出为0V。更换同型号电源模块后通讯恢复。,电源模块内部元器件击穿。,"{""maintenance_log"": ""Log_PLC_HRM2_2024.xlsx"", ""electrical_drawing"": ""Drawing_E_HRM2_RF7_IO.pdf"", ""photo_internal"": [""PHOTO_HRM2_RF7_PS_FAIL_20240528_1015.jpg""]}"
+F-2024-0015,1#加热炉 1号出炉机器人,FURN1-ROBOT-01,2024/5/28 14:50,出炉机器人在抓取板坯时，夹钳无法闭合，PLC报警“夹钳闭合超时”。,夹钳闭合电磁阀线圈烧毁,手动操作电磁阀无效。使用万用表测量电磁阀线圈电阻，显示为无穷大（开路）。更换同型号电磁阀线圈。,电磁阀长期在高温环境下工作，线圈绝缘老化导致短路烧毁。,"{""timeseries_data"": [""PLC_FURN1_ROBOT01_CLAMP_20240528_1445.csv""], ""thermal_image"": [""IMG_FURN1_ROBOT01_VALVE_20240528_1500.jpg""], ""schematics"": ""Schematic_FURN1_Robot_Pneumatic.pdf#page=3""}"
+F-2024-0016,2#粗轧机 R1电机冷却风机,HRM2-R1-FAN,2024/5/29 9:20,R1主电机温度持续上升，超过报警值，检查发现电机顶部的冷却风机没有运转。,冷却风机接触器主触点烧结,检查风机控制柜，送电后接触器吸合，但测量输出端三相电压不平衡，A相为0。断电检查，发现接触器A相主触点烧结在一起，无法正常通断。,接触器选型偏小，长期在接近额定电流下工作导致触点过热氧化。,"{""thermal_image"": [""IMG_HRM2_R1_FAN_CONTACTOR_20240529_0925.jpg""], ""electrical_drawing"": ""Drawing_E_HRM2_R1_Cooling.pdf"", ""photo_damage"": [""PHOTO_HRM2_R1_CONTACTOR_BURNED_20240529_0940.jpg""]}"
+F-2024-0017,1#精轧机 F4机架,HRM1-RF4-LUB,2024/5/29 16:00,F4机架油气润滑站压力低报警，现场检查发现一根分配管路的接头处断裂，大量油气喷出。,油气润滑管路接头疲劳断裂,紧急停止润滑站。更换断裂的卡套式接头，并检查周围管路有无松动。恢复系统，压力正常。,管路在安装时存在应力，设备长期振动导致接头处产生金属疲劳。,"{""photo_leak"": [""PHOTO_HRM1_RF4_LUB_LEAK_20240529_1605.jpg""], ""maintenance_manual"": ""Manual_Lubrication_System.pdf#page=50"", ""schematics"": ""Schematic_HRM1_Lubrication_RF4.pdf""}"
+F-2024-0018,2#卷取机 C1下线运输链,COILER1-CHAIN-OUT,2024/5/30 11:30,运输钢卷的链条在运行时发出吱吱嘎嘎的异响，并且有明显的抖动。,运输链条销轴磨损严重，链条节距被拉长。,检查链条张紧度，发现已无法再张紧。测量链条节距，超出标准磨损极限。更换整条运输链条。,链条润滑不到位，导致销轴和套筒之间干摩擦，加剧了磨损。,"{""photo_damage"": [""PHOTO_COILER1_CHAIN_WORN_20240530_1145.jpg""], ""maintenance_log"": ""Log_COILER1_Chain_2024.xlsx"", ""maintenance_manual"": ""Manual_Coiler_Chain_Conveyor.pdf#page=15""}"
+F-2024-0019,1#粗轧机 R3 AGC系统,HRM1-R3-AGC,2024/5/30 15:00,R3机架的厚度自动控制（AGC）系统投入后，轧制力剧烈波动，导致出口厚度波动超差。,AGC控制器PID参数整定不当,重新进入AGC控制器参数设置界面，根据当前钢种和轧制规程，降低比例增益（P），适当增加积分时间（I）。重新投入AGC后，系统响应平稳。,更换钢种后，未及时更新匹配的PID控制参数。,"{""timeseries_data"": [""PLC_HRM1_R3_AGC_FORCE_THICKNESS_20240530_1455.csv"", ""PLC_HRM1_R3_AGC_FORCE_THICKNESS_TUNED_20240530_1530.csv""], ""maintenance_manual"": ""Manual_AGC_Tuning_Guide.pdf#page=25"", ""parameter_log"": ""Log_AGC_Params_HRM1_2024.xlsx""}"
+F-2024-0020,2#层流冷却区 集水坑泵,LFC2-SUMP-PUMP,2024/5/31 8:30,集水坑液位达到高位，但1号排污泵无法启动，控制柜上手动也打不开。,排污泵电机热继电器故障跳闸,检查电机控制柜，发现热继电器处于脱扣状态。复位后手动启动正常。测量电机三相电流平衡且在额定范围内。,泵入口被杂物（如氧化铁皮、塑料袋）堵塞，导致电机过载，热继电器保护动作。清理集水坑后问题解决。,"{""electrical_drawing"": ""Drawing_E_LFC2_SUMP_PUMP.pdf"", ""photo_internal"": [""PHOTO_LFC2_SUMP_CLOGGED_20240531_0900.jpg""], ""maintenance_log"": ""Log_LFC2_PUMPS_2024.xlsx""}"
+F-2024-0021,1#精轧机 F3机架,HRM1-RF3-SCREWDOWN,2024/6/1 10:15,F3机架电动压下系统在调整辊缝时，传动侧电机过载报警，无法压下。,压下螺母丝杠润滑不良，导致卡涩,手动盘车困难。向压下螺母注入大量高压润滑脂，并反复上下活动压下装置。电机过载情况消失。,自动润滑系统对应管路堵塞，导致润滑脂无法正常注入。,"{""timeseries_data"": [""PLC_HRM1_RF3_SCREWDOWN_CURRENT_20240601_1010.csv""], ""maintenance_manual"": ""Manual_Screwdown_System.pdf#page=19"", ""schematics"": ""Schematic_HRM1_Lubrication_Screws.pdf""}"
+F-2024-0022,2#板坯库 2号天车,CRANE-SLAB-02,2024/6/1 14:00,2号天车起升机构在吊运板坯时，发生溜钩现象，板坯缓慢下落。,起升机构制动器闸瓦磨损超限,调整制动器抱闸力矩无效。检查制动器，发现闸瓦厚度已低于3mm，磨损严重。更换新闸瓦。,闸瓦为易损件，未按周期进行检查更换。,"{""photo_damage"": [""PHOTO_CRANE02_BRAKE_WORN_20240601_1430.jpg""], ""maintenance_log"": ""Log_CRANE_SLAB_02_2024.xlsx"", ""maintenance_manual"": ""Manual_Crane_Brake_System.pdf#page=8""}"
+F-2024-0023,1#加热炉 炉门#2,FURN1-DOOR-02,2024/6/2 9:00,2号炉门无法提升，液压缸不动，但泵站压力正常。,炉门提升液压缸的电液换向阀卡死,手动操作换向阀无效。拆解换向阀，发现阀芯上有杂质。清洗阀体和阀芯，更换密封件后重新安装。,液压油清洁度不达标，导致阀芯卡涩。,"{""timeseries_data"": [""PLC_FURN1_DOOR02_CMD_20240602_0855.csv""], ""schematics"": ""Schematic_FURN1_Door_Hydraulic.pdf#page=4"", ""photo_internal"": [""PHOTO_FURN1_DOOR02_VALVE_DIRTY_20240602_1000.jpg""]}"
+F-2024-0024,2#精轧机 F6机架,HRM2-RF6-SENSOR,2024/6/2 16:30,F6机架出口侧的活套扫描仪（Looper Scanner）数据为0，活套控制模式无法投入。,活套扫描仪激光发射器故障,检查扫描仪电源和通讯正常。用手遮挡发射器和接收器，无信号变化。进入设备诊断界面，激光发射器功率为0。更换激光发射器模块。,激光发射器达到使用寿命。,"{""maintenance_log"": ""Log_Sensor_HRM2_2024.xlsx"", ""sensor_datasheet"": ""Datasheet_LooperScanner_LS200.pdf"", ""photo_internal"": [""PHOTO_HRM2_RF6_SCANNER_FAIL_20240602_1700.jpg""]}"
+F-2024-0025,1#卷取机 C1侧导板,COILER1-SIDEGUIDE,2024/6/3 11:00,C1卷取机入口侧导板宽度调整时，一侧移动正常，另一侧不动，导致钢带跑偏。,侧导板驱动液压马达损坏,检查液压管路压力正常，电磁阀工作正常。拆下故障侧液压马达，发现其输出轴无法转动。更换同型号液压马达。,液压油中杂质导致马达内部配流盘磨损卡死。,"{""schematics"": ""Schematic_COILER1_Sideguide_Hydraulic.pdf#page=7"", ""photo_damage"": [""PHOTO_COILER1_HYDMOTOR_FAIL_20240603_1400.jpg""], ""oil_analysis_report"": ""REPORT_OIL_COILER1_HYD_20240601.pdf""}"
+F-2024-0026,2#粗轧机 R3传动轴,HRM2-R3-SPINDLE,2024/6/3 18:00,R3机架轧制过程中突然发出一声巨响，随后轧机过载停机。,主传动万向接轴十字轴承断裂,检查主传动系统，发现连接电机和齿轮箱的万向接轴十字轴承已完全碎裂，滚针散落一地。,十字轴承润滑不良，导致滚针磨损，间隙增大，最终在冲击载荷下断裂。,"{""vibration"": [""VIB_HRM2_R3_SPINDLE_20240603_1755.csv""], ""photo_damage"": [""PHOTO_HRM2_R3_SPINDLE_BROKEN_20240603_1830.jpg""], ""maintenance_manual"": ""Manual_Universal_Joint.pdf#page=11""}"
+F-2024-0027,1#层流冷却区 浊环水系统,LFC1-WATER-SYSTEM,2024/6/4 9:30,整个1号层流冷却区水压偏低，多个阀门开度已达100%但流量仍然不足。,浊环水系统主管道上的Y型过滤器堵塞,检查主管道过滤器前后压差，超过0.5MPa，说明堵塞严重。切换到旁路管道供水，拆开过滤器，发现内部被大量氧化铁皮和杂物堵死。,近期高压水除鳞系统有故障，导致大量氧化铁皮进入回水系统。,"{""timeseries_data"": [""PLC_LFC1_WATER_PRESSURE_FLOW_20240604_0925.csv""], ""photo_internal"": [""PHOTO_LFC1_FILTER_CLOGGED_20240604_1030.jpg""], ""schematics"": ""Schematic_LFC1_Water_System.pdf#page=2""}"
+F-2024-0028,2#加热炉 5号烧嘴,FURN2-BURNER-05,2024/6/4 15:00,5号烧嘴点火失败，多次尝试后PLC报点火故障报警。,点火烧嘴的火焰检测器（紫外线探头）损坏,检查点火电极能正常打火，燃气电磁阀也开启。用打火机在火焰检测器探头前测试，无信号反馈。更换火焰检测器后点火正常。,探头长期处于高温环境，性能衰减。,"{""maintenance_log"": ""Log_Burner_FURN2_2024.xlsx"", ""schematics"": ""Schematic_FURN2_Burner_Control.pdf#page=6"", ""sensor_datasheet"": ""Datasheet_UV_Detector_QRA2.pdf""}"
+F-2024-0029,1#精轧机 F7机架,HRM1-RF7-COOLING,2024/6/5 11:45,F7机架工作辊冷却水流量低报警，现场检查发现多根喷嘴堵塞，喷出的水流很小。,工作辊冷却水喷嘴堵塞,停机。使用专用工具逐一清理F7机架上下工作辊的所有冷却水喷嘴。恢复供水，流量正常。,冷却水中含有细小杂质，在喷嘴处堆积导致堵塞。,"{""photo_internal"": [""PHOTO_HRM1_RF7_NOZZLE_CLOGGED_20240605_1230.jpg""], ""maintenance_manual"": ""Manual_WorkRoll_Cooling.pdf#page=9"", ""schematics"": ""Schematic_HRM1_Cooling_System.pdf#page=11""}"
+F-2024-0030,2#卷取机 C2 mandrel,COILER2-MANDREL,2024/6/5 17:00,C2卷取机卸卷后，卷筒无法正常收缩，导致下一个钢卷无法卷取。,卷筒（mandrel）楔形块动作机构卡死,对卷筒收缩机构的滑块和楔形块进行强制润滑。反复操作扩张/收缩指令，最终动作恢复。但动作依然不顺畅。,钢卷氧化铁皮粉末进入楔形块机构的缝隙中，混合润滑脂后形成油泥，阻碍了正常动作。,"{""maintenance_manual"": ""Manual_Coiler_Mandrel.pdf#page=25"", ""schematics"": ""Schematic_COILER2_Mandrel_Assembly.pdf"", ""photo_internal"": [""PHOTO_COILER2_MANDREL_DIRTY_20240605_1800.jpg""]}"
+F-2024-0031,1#粗轧机 R1电机,HRM1-R1-MOTOR,2024/6/6 10:00,R1主电机运行时，非驱动侧轴承振动值持续缓慢上升，已接近报警限值。,非驱动侧电机轴承润滑脂劣化,停机。打开轴承盖，发现内部润滑脂已干涸、变色。清理旧润滑脂，重新加注规定牌号和剂量的新润滑脂。,润滑脂加注周期过长，未按规定执行。,"{""vibration"": [""VIB_HRM1_R1_NDE_20240606_0955.csv""], ""maintenance_manual"": ""Manual_RollingMill_Motor.pdf#page=48"", ""maintenance_log"": ""Log_HRM1-R1-MOTOR_LUB_2024.xlsx""}"
+F-2024-0032,2#精轧机 F4机架,HRM2-RF4-CYLINDER,2024/6/6 15:30,F4机架的液压伺服缸（HGC）响应迟钝，厚度控制精度下降。,液压伺服缸的伺服阀滤芯堵塞,拆下伺服阀，检查其内置的微型滤芯，发现已被污染物覆盖。使用超声波清洗机清洗滤芯，并更换系统主滤芯。,液压系统油液清洁度不达标。,"{""timeseries_data"": [""PLC_HRM2_RF4_HGC_RESPONSE_20240606_1525.csv""], ""photo_internal"": [""PHOTO_HRM2_RF4_SERVO_FILTER_CLOGGED_20240606_1600.jpg""], ""schematics"": ""Schematic_HRM2_HGC_System.pdf#page=9""}"
+F-2024-0033,1#板坯库 3号天车,CRANE-SLAB-03,2024/6/7 9:10,3号天车小车行走时异响严重，车轮啃轨。,小车行走机构车轮不在同一水平线上，导致对角线尺寸偏差过大。,使用激光水平仪和经纬仪重新测量小车行走轨道和车轮。调整车轮下的垫片，校正小车框架，确保车轮对角线误差在允许范围内。,上次更换车轮后，最终的校准工作未做到位。,"{""maintenance_log"": ""Log_CRANE_SLAB_03_2024.xlsx"", ""maintenance_manual"": ""Manual_Crane_Alignment.pdf#page=15"", ""photo_damage"": [""PHOTO_CRANE03_WHEEL_FLANGE_WORN_20240607_0930.jpg""]}"
+F-2024-0034,2#除鳞箱 入口门,DESCALER2-DOOR-IN,2024/6/7 14:00,除鳞箱入口门关闭不到位，留有缝隙，导致大量蒸汽和水溅出。,门体铰链轴套磨损，导致门体下沉。,使用千斤顶将门体顶起，拆下铰链。更换新的铜基合金轴套，并加注耐高温润滑脂。,高温、高湿环境下润滑失效，加剧了轴和轴套的磨损。,"{""photo_damage"": [""PHOTO_DESCALER2_DOOR_HINGE_WORN_20240607_1500.jpg""], ""maintenance_manual"": ""Manual_Descaler_Box.pdf#page=12"", ""drawing"": ""Drawing_A_DESCALER2_DOOR.pdf""}"
+F-2024-0035,1#卷取机 C1电机,COILER1-MOTOR,2024/6/8 11:00,C1卷取机主电机空载运行时电流异常，三相不平衡严重。,电机定子绕组相间短路,停机，使用摇表和直流电阻电桥分别测量电机绕组的绝缘电阻和直流电阻。发现A、B相之间绝缘电阻为0，存在短路点。安排电机返厂重绕线圈。,电机绕组绝缘老化，在电压波动或高温下被击穿。,"{""timeseries_data"": [""PLC_COILER1_MOTOR_CURRENT_20240608_1055.csv""], ""electrical_drawing"": ""Drawing_E_COILER1_MOTOR.pdf"", ""test_report"": ""REPORT_MOTOR_TEST_COILER1_20240608.pdf""}"
+F-2024-0036,2#精轧机 F2机架,HRM2-RF2-GEARBOX,2024/6/8 17:30,F2机架主传动齿轮箱油温高报警，温度达到70摄氏度。,齿轮箱冷却器管路堵塞,检查齿轮箱润滑站，发现冷却器进出水管温差极大，说明水流量不足。拆开冷却器端盖，发现内部管束被水垢和杂物堵塞。进行化学和物理清洗。,工业循环水水质硬度高，且过滤系统效果不佳。,"{""timeseries_data"": [""PLC_HRM2_RF2_GEARBOX_TEMP_20240608_1725.csv""], ""thermal_image"": [""IMG_HRM2_RF2_COOLER_20240608_1735.jpg""], ""schematics"": ""Schematic_HRM2_Lubrication_System.pdf#page=6""}"
+F-2024-0037,1#热送辊道 R5段,ROLLER-TABLE-R5,2024/6/9 9:00,R5段整段辊道无法启动，控制柜内变频器报“接地故障”。,辊道其中一台电机电缆对地短路,断开该段所有电机的动力电缆。使用兆欧表逐一测量每根电缆和每台电机的绝缘电阻。发现第8号电机的电缆对地绝缘为0。更换该电缆后故障消除。,电缆敷设在电缆沟内，被积水浸泡，导致绝缘层破损。,"{""electrical_drawing"": ""Drawing_E_ROLLER_TABLE_R5.pdf"", ""maintenance_log"": ""Log_ROLLER-TABLE-R5_2024.xlsx"", ""test_report"": ""REPORT_CABLE_INSULATION_TEST_20240609.pdf""}"
+F-2024-0038,2#层流冷却区 浊环水泵#2,LFC2-PUMP-02,2024/6/9 14:20,2号浊环水泵启动瞬间，开关跳闸，且有巨大电流声。,泵电机转子与定子扫膛,手动盘车，感觉转动不顺畅，有卡点。解体电机，发现转子铁芯与定子铁芯有明显的摩擦痕迹。,电机轴承磨损严重，导致转子下沉，径向气隙不均匀，最终发生扫膛。,"{""vibration"": [""VIB_LFC2_PUMP02_STARTUP_20240609_1419.csv""], ""photo_damage"": [""PHOTO_LFC2_PUMP02_ROTOR_SCRATCH_20240609_1600.jpg""], ""maintenance_manual"": ""Manual_Centrifugal_Pump.pdf#page=35""}"
+F-2024-0039,1#加热炉 烟气挡板,FURN1-DAMPER,2024/6/10 10:00,烟气挡板开度无法调节，卡在50%的位置不动。,挡板执行器连杆变形卡死,检查电动执行器，输出力正常。检查机械连杆机构，发现一根连接杆因高温发生轻微变形，卡住了活动关节。,挡板长期在高温烟气环境中工作，材料发生蠕变。,"{""photo_damage"": [""PHOTO_FURN1_DAMPER_ROD_BENT_20240610_1030.jpg""], ""drawing"": ""Drawing_A_FURN1_DAMPER.pdf"", ""maintenance_log"": ""Log_FURN1_Dampers_2024.xlsx""}"
+F-2024-0040,2#卷取机 C1液压系统,COILER1-HYD-ACCUM,2024/6/10 16:00,C1卷取机液压系统压力波动频繁，蓄能器压力表读数快速下降。,蓄能器皮囊破裂,关闭蓄能器油路，给蓄能器充氮气，发现氮气压力无法保持，从油路端有气体排出。确认皮囊已破裂。更换新的蓄能器皮囊。,皮囊为橡胶制品，长期使用后老化脆裂。,"{""timeseries_data"": [""PLC_COILER1_HYD_PRESSURE_20240610_1555.csv""], ""schematics"": ""Schematic_COILER1_Hydraulic_System.pdf#page=11"", ""maintenance_manual"": ""Manual_Accumulator_Service.pdf#page=7""}"
+F-2024-0041,1#精轧机 F1机架,HRM1-RF1-DRIVE,2024/6/11 9:30,F1机架主传动系统报编码器故障，检查发现编码器脉冲数异常。,编码器联轴器松动,检查连接电机和编码器的联轴器，发现其紧固螺丝松动，导致在传动过程中打滑，造成脉冲信号不连续。,设备振动导致螺丝松动。,"{""timeseries_data"": [""PLC_HRM1_RF1_ENCODER_PULSE_20240611_0925.csv""], ""photo_internal"": [""PHOTO_HRM1_RF1_COUPLING_LOOSE_20240611_0945.jpg""], ""electrical_drawing"": ""Drawing_E_HRM1_RF1_Encoder.pdf""}"
+F-2024-0042,2#板坯库 4号天车,CRANE-SLAB-04,2024/6/11 15:00,4号天车遥控器失灵，所有按钮均无反应。,遥控器电池电量耗尽,更换遥控器电池后，操作恢复正常。,操作人员班后未将遥控器放回充电座。,"{""maintenance_log"": ""Log_CRANE_SLAB_04_2024.xlsx"", ""maintenance_manual"": ""Manual_Crane_Remote_Control.pdf#page=5""}"
+F-2024-0043,1#层流冷却区 浊环水泵#4,LFC1-PUMP-04,2024/6/12 11:00,4号泵机械密封处漏水量超标，形成水帘。,机械密封动、静环磨损,停泵，拆卸机械密封。检查发现动环和静环的密封面均有明显的划痕和磨损。更换整套机械密封。,水中杂质颗粒进入密封面，起到了研磨剂的作用，加速了磨损。,"{""photo_damage"": [""PHOTO_LFC1_PUMP04_MECHSEAL_WORN_20240612_1400.jpg""], ""maintenance_manual"": ""Manual_Centrifugal_Pump.pdf#page=22"", ""schematics"": ""Schematic_Pump_Seal_Assembly.pdf""}"
+F-2024-0044,2#精轧机 F5机架,HRM2-RF5-PLC,2024/6/12 17:00,F5机架的远程I/O站通讯中断，DCS上相关信号全部失效。,远程I/O站的光纤收发器故障,检查I/O站内光纤收发器，电源灯正常，但数据收发指示灯不闪烁。使用光功率计测试，接收光功率过低。更换光纤收发器后通讯恢复。,光纤收发器电子元器件老化失效。,"{""maintenance_log"": ""Log_PLC_HRM2_2024.xlsx"", ""schematics"": ""Schematic_Network_Topology_HRM2.pdf"", ""photo_internal"": [""PHOTO_HRM2_RF5_FIBER_TRANSCEIVER_FAIL_20240612_1720.jpg""]}"
+F-2024-0045,1#卷取机 C2助卷辊,COILER2-PINCHROLL,2024/6/13 10:30,C2卷取机上助卷辊压力无法建立，检查发现液压缸不动作。,助卷辊液压缸的比例方向阀线圈烧毁,测量比例阀电磁线圈电阻，为无穷大，已开路。更换同型号线圈后，液压缸动作恢复正常。,电流过大或长期通电导致线圈过热烧毁。,"{""timeseries_data"": [""PLC_COILER2_PINCHROLL_PRESSURE_20240613_1025.csv""], ""schematics"": ""Schematic_COILER2_Hydraulic_System.pdf#page=18"", ""photo_damage"": [""PHOTO_COILER2_VALVE_COIL_BURNED_20240613_1100.jpg""]}"
+F-2024-0046,2#加热炉 炉底水管,FURN2-WATERPIPE,2024/6/13 16:00,加热炉炉底观察孔发现有漏水现象，炉内蒸汽弥漫。,炉底冷却水管焊缝开裂,紧急停炉降温。进入炉内检查，发现一根支撑梁的冷却水管焊缝处有约5cm的裂缝。对裂缝处进行打磨、补焊和探伤测试。,长期经受冷热交变应力，导致焊缝处产生疲劳裂纹。,"{""photo_leak"": [""PHOTO_FURN2_PIPE_LEAK_20240613_2000.jpg""], ""drawing"": ""Drawing_A_FURN2_Piping.pdf"", ""maintenance_log"": ""Log_FURN2_Repairs_2024.xlsx""}"
+F-2024-0047,1#精轧机 F6机架,HRM1-RF6-SENSOR,2024/6/14 9:00,F6机架出口测厚仪数值不准确，与实际厚度偏差很大。,测厚仪C型架上有油污和氧化铁皮附着，影响射线穿透。,停机，使用专用清洁剂和软布，彻底清洁测厚仪C型架的内外表面，特别是射线发射和接收窗口。重新标定后，测量恢复准确。,生产环境恶劣，日常清洁维护不到位。,"{""photo_internal"": [""PHOTO_HRM1_RF6_XRAY_GAUGE_DIRTY_20240614_0930.jpg""], ""maintenance_manual"": ""Manual_XRay_Thickness_Gauge.pdf#page=31"", ""calibration_log"": ""Log_Gauge_Calibration_HRM1_2024.xlsx""}"
+F-2024-0048,2#粗轧机 R2电机,HRM2-R2-MOTOR,2024/6/14 14:30,R2主电机启动时，DCS报“驱动单元接地故障”，无法启动。,电机电缆终端头受潮，绝缘降低。,断开电机电缆，对电机和电缆分别进行绝缘测试。发现电缆绝缘电阻极低。检查电缆终端头，发现有水汽凝结。使用热风枪进行烘干处理，并重新进行密封。绝缘恢复正常。,电缆沟内湿度大，电缆终端头密封胶老化开裂，导致潮气侵入。,"{""test_report"": ""REPORT_CABLE_INSULATION_TEST_HRM2_R2_20240614.pdf"", ""photo_internal"": [""PHOTO_HRM2_R2_CABLE_HEAD_MOIST_20240614_1500.jpg""], ""electrical_drawing"": ""Drawing_E_HRM2_R2_Motor.pdf""}"
+F-2024-0049,1#除鳞箱 喷嘴,DESCALER1-NOZZLE,2024/6/15 10:00,轧出的钢板表面有黑色的V型条纹，怀疑是除鳞效果不好。,上集管第15号除鳞喷嘴堵塞,停机检查，发现上集管中间位置的15号喷嘴完全被异物堵死。拆下后发现是一块碎裂的耐火材料。更换新喷嘴。,加热炉内耐火材料剥落，被板坯带入除鳞箱。,"{""photo_damage"": [""PHOTO_STEEL_PLATE_SCALE_MARK_20240615_0945.jpg""], ""photo_internal"": [""PHOTO_DESCALER1_NOZZLE_CLOGGED_20240615_1030.jpg""], ""schematics"": ""Schematic_Descaler1_Nozzle_Layout.pdf""}"
+F-2024-0050,2#卷取机 C1控制台,COILER1-CONSOLE,2024/6/15 16:30,操作台的触摸屏失灵，点击任何按钮都没有反应。,触摸屏本身硬件故障,重启HMI无效。将触摸屏连接到测试电脑上，同样无法识别。确认触摸屏已损坏。更换新的触摸屏备件。,触摸屏使用年限过长，内部电路老化。,"{""photo_internal"": [""PHOTO_COILER1_HMI_FAIL_20240615_1645.jpg""], ""maintenance_log"": ""Log_HMI_Replacements_2024.xlsx"", ""electrical_drawing"": ""Drawing_E_COILER1_Console.pdf""}"
+F-2024-0051,1#精轧机 F5机架,HRM1-RF5-BEARING,2024/6/16 11:00,F5机架传动侧支撑辊轴承振动异常，频谱中出现明显的保持架频率。,传动侧支撑辊轴承保持架断裂,紧急换辊。拆解换下的支撑辊轴承，发现铜质保持架已断成数截，部分滚子脱落。,轴承受过巨大冲击载荷（如轧制事故），导致保持架产生裂纹并逐渐扩展。,"{""vibration"": [""VIB_HRM1_RF5_DRV_SUPPORT_20240616_1055.csv""], ""photo_damage"": [""PHOTO_HRM1_RF5_CAGE_BROKEN_20240616_1500.jpg""], ""maintenance_manual"": ""Manual_BackupRoll_Bearing.pdf#page=29""}"
+F-2024-0052,2#层流冷却区 浊环水泵#1,LFC2-PUMP-01,2024/6/16 15:20,1号泵运行时有强烈的汽蚀噪音，并且出口压力不稳。,泵入口管道滤网堵塞，导致泵入口真空度过高，发生汽蚀。,停泵，关闭入口阀门。拆开泵入口前的滤网，发现已被塑料布和纤维状杂物严重堵塞。清理滤网后，泵运行恢复正常。,回水渠中的杂物未被有效拦截，进入泵的吸入管道。,"{""vibration"": [""VIB_LFC2_PUMP01_CAVITATION_20240616_1515.csv""], ""photo_internal"": [""PHOTO_LFC2_PUMP01_FILTER_CLOGGED_20240616_1545.jpg""], ""schematics"": ""Schematic_LFC2_Water_System.pdf#page=4""}"
+F-2024-0053,1#加热炉 步进梁,FURN1-WALKINGBEAM,2024/6/17 9:00,步进梁在提升过程中，一侧升起正常，另一侧升不起来，导致梁体倾斜。,步进梁提升机构的同步轴联轴器断裂,检查步进梁下方的传动机构，发现连接两侧提升装置的同步长轴中间的梅花联轴器已断裂。,联轴器弹性体老化失效后未及时更换，导致金属爪直接接触磨损，最终断裂。,"{""photo_damage"": [""PHOTO_FURN1_COUPLING_BROKEN_20240617_1000.jpg""], ""drawing"": ""Drawing_A_FURN1_WalkingBeam_Drive.pdf"", ""maintenance_log"": ""Log_FURN1_Repairs_2024.xlsx""}"
+F-2024-0054,2#精轧机 F1机架,HRM2-RF1-SENSOR,2024/6/17 14:00,F1机架入口侧的宽度测量仪数据跳变严重，数值不稳定。,宽度仪的防护玻璃被蒸汽和油污污染，影响测量精度。,使用专用清洁布擦拭宽度仪上下两侧的防护玻璃。数据恢复稳定。建议增加吹扫空气压力。,现场环境恶劣，吹扫系统效果不佳。,"{""timeseries_data"": [""PLC_HRM2_RF1_WIDTH_GAUGE_20240617_1355.csv""], ""photo_internal"": [""PHOTO_HRM2_RF1_GAUGE_DIRTY_20240617_1410.jpg""], ""maintenance_manual"": ""Manual_Width_Gauge.pdf#page=18""}"
+F-2024-0055,1#卷取机 C1液压系统,COILER1-HYD-COOLER,2024/6/18 10:30,液压站油温持续升高，触发二级报警，但冷却风扇在转。,液压油冷却器表面被油泥和灰尘覆盖，散热效果差。,使用高压空气和清洁剂，对冷却器的散热翅片进行彻底清理。清理后油温很快下降到正常范围。,设备卫生清洁工作有死角，未定期清理冷却器。,"{""timeseries_data"": [""PLC_COILER1_HYD_TEMP_20240618_1025.csv""], ""thermal_image"": [""IMG_COILER1_HYD_COOLER_DIRTY_20240618_1035.jpg""], ""photo_internal"": [""PHOTO_COILER1_COOLER_CLEANED_20240618_1130.jpg""], ""schematics"": ""Schematic_COILER1_Hydraulic_System.pdf#page=9""}"
+F-2024-0056,2#粗轧机 R3立辊,HRM2-R3-EDGER,2024/6/18 16:00,立辊电机变频器报“过流”故障，无法复位。,立辊电机到变频器之间的动力电缆相间短路,断开电缆，对电机和电缆分别摇表测试。发现电缆红、黄两相之间绝缘为0。检查电缆路径，发现被一块掉落的钢板砸伤。,现场安全防护措施不到位，掉落物砸坏电缆。,"{""electrical_drawing"": ""Drawing_E_HRM2_R3_Edger.pdf"", ""photo_damage"": [""PHOTO_HRM2_R3_CABLE_DAMAGED_20240618_1630.jpg""], ""test_report"": ""REPORT_CABLE_INSULATION_TEST_HRM2_R3_20240618.pdf""}"
+F-2024-0057,1#板坯库 5号天车,CRANE-SLAB-05,2024/6/19 9:00,5号天车在吊运一个满载的板坯时，主梁出现轻微的向下弯曲变形。,天车超载使用，导致主梁产生塑性变形。,使用全站仪对主梁挠度进行测量，确认已超出设计安全范围。立即停止使用该天车，并联系原厂家进行检修评估。,操作人员违规操作，一次吊运了两个板坯。,"{""maintenance_log"": ""Log_CRANE_SLAB_05_2024.xlsx"", ""drawing"": ""Drawing_A_CRANE05_Main_Girder.pdf"", ""photo_damage"": [""PHOTO_CRANE05_GIRDER_BENT_20240619_0915.jpg""]}"
+F-2024-0058,2#加热炉 空气换热器,FURN2-HEAT-EXCHANGER,2024/6/19 14:30,助燃空气预热温度上不去，导致燃气消耗量增加。,空气换热器管束积灰严重，传热效率下降。,停炉。对换热器进行吹灰和机械清理，清除管束内外表的积灰和结焦。,燃料质量不佳或燃烧不充分，产生过多烟尘。,"{""timeseries_data"": [""PLC_FURN2_AIR_TEMP_GAS_FLOW_20240619_1425.csv""], ""maintenance_manual"": ""Manual_Heat_Exchanger_Cleaning.pdf#page=11"", ""photo_internal"": [""PHOTO_FURN2_EXCHANGER_DUSTY_20240619_1800.jpg""]}"
+F-2024-0059,1#精轧机 F2机架,HRM1-RF2-DRIVE,2024/6/20 11:00,F2机架主电机驱动柜（变频器）报“散热器过温”故障。,变频器冷却风扇故障停转,打开驱动柜门，发现其中一个散热风扇没有转动。断电检查，发现风扇电源线脱落。重新接线后，风扇运转正常。,风扇电源线接头压接不牢，在振动下松脱。,"{""photo_internal"": [""PHOTO_HRM1_RF2_DRIVE_FAN_STOPPED_20240620_1105.jpg""], ""thermal_image"": [""IMG_HRM1_RF2_DRIVE_HOTSPOT_20240620_1102.jpg""], ""electrical_drawing"": ""Drawing_E_HRM1_RF2_Drive_Cabinet.pdf""}"
+F-2024-0060,2#卷取机 C2剪切机,COILER2-SHEAR,2024/6/20 17:00,带钢头部剪切机在剪切时，切口不齐，有毛刺。,剪切机刀片磨损或崩刃,检查上下两片刀片的刀刃，发现有几处小的崩口。更换备用刀片组。剪切质量恢复。,剪切了超出额定强度的钢种，导致刀片损坏。,"{""photo_damage"": [""PHOTO_COILER2_SHEAR_BLADE_CHIPPED_20240620_1720.jpg"", ""PHOTO_STEEL_STRIP_BURR_20240620_1655.jpg""], ""maintenance_manual"": ""Manual_Coiler_Shear.pdf#page=21"", ""drawing"": ""Drawing_A_Shear_Blade.pdf""}"
+F-2024-0061,1#粗轧机 R2电机,HRM1-R2-MOTOR,2024/6/21 10:00,R2主电机启动时，虽然能转，但转速上不去，且电流巨大。,电机转子绕组开路（断条）,使用转子断条检测仪进行测试，确认转子存在断条故障。安排电机返厂进行转子修复。,电机频繁启停或长期过载，导致转子导条因热应力疲劳断裂。,"{""timeseries_data"": [""PLC_HRM1_R2_MOTOR_STARTUP_20240621_0958.csv""], ""test_report"": ""REPORT_MOTOR_ROTOR_TEST_HRM1_R2_20240621.pdf"", ""vibration"": [""VIB_HRM1_R2_STARTUP_20240621_0958.csv""]}"
+F-2024-0062,2#精轧机 F3机架,HRM2-RF3-LUB,2024/6/21 15:00,F3机架的油膜轴承油站回油滤芯压差大报警。,回油滤芯被污染物堵塞,切换到备用滤芯组。拆下报警的滤芯，发现表面附着了大量黑色的油泥和金属颗粒。,油膜轴承密封失效，导致轧制乳化液进入润滑油系统，造成油品乳化变质。,"{""photo_internal"": [""PHOTO_HRM2_RF3_FILTER_CLOGGED_20240621_1515.jpg""], ""oil_analysis_report"": ""REPORT_OIL_HRM2_MORGOIL_20240620.pdf"", ""schematics"": ""Schematic_HRM2_Morgoil_System.pdf#page=7""}"
+F-2024-0063,1#层流冷却区 CEMS系统,LFC1-CEMS,2024/6/22 9:30,环保在线监测系统（CEMS）报“烟气湿度异常高”的假警报。,CEMS探头取样管路的伴热带故障，导致烟气冷凝。,检查取样管路，发现伴热带不热。测量其电阻，为无穷大，已烧断。更换新的伴热带后，湿度读数恢复正常。,伴热带老化。,"{""timeseries_data"": [""PLC_CEMS_HUMIDITY_20240622_0925.csv""], ""maintenance_manual"": ""Manual_CEMS_System.pdf#page=15"", ""photo_internal"": [""PHOTO_LFC1_CEMS_HEATER_FAIL_20240622_0945.jpg""]}"
+F-2024-0064,2#板坯库 1号地磅,SCALE-SLAB-01,2024/6/22 14:00,地磅称重数值严重偏小，一个20吨的板坯只显示8吨。,地磅其中一个称重传感器（Load Cell）损坏,进入地磅诊断模式，逐一检查每个传感器的读数。发现3号传感器的信号输出为0。更换3号称重传感器，并重新进行整秤标定。,传感器被车辆撞击或长期过载，导致内部应变片损坏。,"{""photo_damage"": [""PHOTO_SCALE01_LOADCELL_DAMAGED_20240622_1500.jpg""], ""maintenance_manual"": ""Manual_Weighing_Scale.pdf#page=20"", ""calibration_log"": ""Log_Scale_Calibration_2024.xlsx""}"
+F-2024-0065,1#加热炉 炉压变送器,FURN1-SENSOR-PRESS,2024/6/23 10:00,炉压控制系统剧烈波动，导致炉门频繁动作，炉温不稳定。,炉压变送器的取压管堵塞,检查连接炉膛和变送器的取压管，发现管口被烟尘和冷凝水形成的混合物堵死。使用压缩空气进行吹扫，清除堵塞物后，炉压信号恢复平稳。,取压管未按要求定期吹扫。,"{""timeseries_data"": [""PLC_FURN1_PRESSURE_CONTROL_20240623_0955.csv""], ""schematics"": ""Schematic_FURN1_Control_System.pdf#page=10"", ""maintenance_log"": ""Log_FURN1_Sensors_2024.xlsx""}"
+F-2024-0066,2#精轧机 F7机架,HRM2-RF7-BENDING,2024/6/23 16:30,F7机架正弯辊压力建立不起来，影响板形控制。,正弯辊液压缸活塞杆密封泄漏,检查液压缸，发现活塞杆一侧有明显的液压油泄漏痕迹。解体液压缸，发现活塞杆密封圈（斯特封）已磨损破裂。,液压油中杂质划伤活塞杆表面，反过来又加剧了密封圈的磨损。,"{""photo_leak"": [""PHOTO_HRM2_RF7_CYLINDER_LEAK_20240623_1635.jpg""], ""photo_damage"": [""PHOTO_HRM2_RF7_SEAL_BROKEN_20240623_1800.jpg""], ""schematics"": ""Schematic_HRM2_Bending_System.pdf#page=6""}"
+F-2024-0067,1#卷取机 C1区域,COILER1-SAFETY,2024/6/24 9:00,人员进入C1卷取机区域后，安全光栅没有报警，设备没有停机。,安全光栅接收器故障,使用专用测试棒遮挡光栅，系统无响应。检查光栅状态指示灯，发现接收器报警。清洁接收器镜头无效。更换接收器后，功能恢复正常。,接收器内部光电元件老化。,"{""maintenance_log"": ""Log_Safety_Devices_2024.xlsx"", ""electrical_drawing"": ""Drawing_E_COILER1_Safety_Circuit.pdf"", ""photo_internal"": [""PHOTO_COILER1_LIGHT_CURTAIN_FAIL_20240624_0915.jpg""]}"
+F-2024-0068,2#粗轧机 R1液压站,HRM2-HYD-R1,2024/6/24 14:00,R1液压站油箱液位低报警，检查发现地面有大量液压油。,液压站回油管路法兰密封垫片老化破裂,顺着油迹查找，发现主回油管路的一个法兰连接处正在滴油。紧固螺栓无效。拆开法兰，发现橡胶密封垫片已硬化并开裂。更换新的耐油密封垫片。,垫片材料不耐油或使用年限过长。,"{""photo_leak"": [""PHOTO_HRM2_HYD_R1_LEAK_20240624_1410.jpg""], ""schematics"": ""Schematic_HRM2_Hydraulic_System.pdf#page=15""}"
+F-2024-0069,1#除鳞箱 水泵房,DESCALER1-PUMP-ROOM,2024/6/25 10:30,水泵房一台电机的地脚螺栓松动，导致电机运行时振动和噪音都很大。,地脚螺栓松动,停机。使用力矩扳手重新紧固所有地脚螺栓，并使用垫片调整电机水平。振动恢复正常。,设备长期运行产生的振动导致螺栓松动，巡检时未能发现。,"{""vibration"": [""VIB_DESCALER1_PUMP3_HIGH_20240625_1025.csv"", ""VIB_DESCALER1_PUMP3_NORMAL_20240625_1100.csv""], ""photo_internal"": [""PHOTO_DESCALER1_PUMP3_BOLT_LOOSE_20240625_1040.jpg""], ""maintenance_log"": ""Log_DESCALER1_Pumps_2024.xlsx""}"
+F-2024-0070,2#卷取机 C2编码器,COILER2-ENCODER,2024/6/25 16:00,C2卷取机计长不准，每卷钢卷的实际长度都比系统记录的短。,计长用的编码器信号不稳定，存在丢脉冲现象。,使用示波器在线监测编码器输出波形，发现有毛刺和干扰。检查编码器电缆屏蔽层，发现接地不良。重新可靠接地后，波形恢复正常，计长准确。,接地线松动或氧化，导致屏蔽效果下降，信号受到变频器干扰。,"{""timeseries_data"": [""PLC_COILER2_ENCODER_WAVEFORM_BAD_20240625_1610.csv"", ""PLC_COILER2_ENCODER_WAVEFORM_GOOD_20240625_1640.csv""], ""electrical_drawing"": ""Drawing_E_COILER2_Encoder.pdf"", ""maintenance_log"": ""Log_COILER2_Instruments_2024.xlsx""}"
+F-2024-0071,1#精轧机 F7电机,HRM1-RF7-MOTOR,2024/6/26 11:00,F7主电机通风系统风压低报警，电机温度有上升趋势。,电机通风管道滤网堵塞,检查电机通风系统的入口滤网，发现已被大量的灰尘和柳絮堵死。更换新的滤网后，风压恢复正常。,环境因素导致，未根据季节变化增加滤网清理频率。,"{""photo_internal"": [""PHOTO_HRM1_RF7_MOTOR_FILTER_CLOGGED_20240626_1115.jpg""], ""maintenance_manual"": ""Manual_Motor_Ventilation.pdf#page=8"", ""timeseries_data"": [""PLC_HRM1_RF7_MOTOR_TEMP_20240626_1055.csv""]}"
+F-2024-0072,2#板坯库 2号吊具,LIFTER-SLAB-02,2024/6/26 15:30,2号板坯吊具的夹臂无法打开，卡住了板坯。,吊具夹臂连杆机构销轴卡死,对所有活动关节喷涂渗透润滑剂，并使用大锤敲击。最终连杆松动，夹臂打开。拆下销轴，发现已严重锈蚀。打磨销轴和销孔，并加注润滑脂。,吊具在室外使用，雨水侵入关节内部，且润滑保养不及时。,"{""photo_damage"": [""PHOTO_LIFTER02_PIN_RUSTY_20240626_1700.jpg""], ""drawing"": ""Drawing_A_Slab_Lifter.pdf"", ""maintenance_log"": ""Log_LIFTER_SLAB_02_2024.xlsx""}"
+F-2024-0073,1#层流冷却区 流量计,LFC1-FLOWMETER,2024/6/27 9:00,主管道电磁流量计读数一直为0，但实际上有水在流动。,电磁流量计励磁线圈开路,测量励磁线圈的电阻，为无穷大，确认已烧毁。更换同型号的电磁流量计传感器。,传感器内部进水或雷击浪涌导致线圈烧毁。,"{""timeseries_data"": [""PLC_LFC1_FLOWMETER_READING_20240627_0855.csv""], ""electrical_drawing"": ""Drawing_E_LFC1_Instruments.pdf"", ""maintenance_log"": ""Log_LFC1_Instruments_2024.xlsx""}"
+F-2024-0074,2#加热炉 炉管,FURN2-FURNACE-TUBE,2024/6/27 14:00,加热炉辐射段的一根炉管烧穿，导致炉膛内天然气泄漏并燃烧。,炉管长期在高温下发生蠕变，管壁减薄，最终烧穿。,紧急停炉并吹扫。待降温后，对烧穿的炉管进行割除，更换同材质的新管，并进行焊接和无损探伤。,炉管已达到设计使用寿命，未按期进行更换。,"{""photo_damage"": [""PHOTO_FURN2_TUBE_BURNT_THROUGH_20240627_1500.jpg""], ""maintenance_manual"": ""Manual_Furnace_Tube_Inspection.pdf#page=12"", ""test_report"": ""REPORT_NDT_TUBE_WELD_20240628.pdf""}"
+F-2024-0075,1#精轧机 F4 CPC系统,HRM1-RF4-CPC,2024/6/28 10:30,带钢纠偏控制系统（CPC）响应异常，导致钢带在机架间S型跑偏。,CPC系统液压伺服阀零位漂移,将CPC系统置于手动模式，使机架回到中位。检查伺服阀的零位反馈，发现存在偏差。重新调整伺服阀的机械零点。,阀门长期使用后，内部弹簧疲劳或磨损导致零位变化。,"{""timeseries_data"": [""PLC_HRM1_RF4_CPC_POSITION_20240628_1025.csv""], ""maintenance_manual"": ""Manual_CPC_System_Tuning.pdf#page=18"", ""schematics"": ""Schematic_HRM1_CPC_Hydraulic.pdf""}"
+F-2024-0076,2#卷取机 C1助卷辊,COILER1-PINCHROLL,2024/6/28 16:00,上助卷辊无法抬起，PLC报“提升超时”报警。,助卷辊提升液压缸的平衡阀故障,检查发现提升液压缸有杆腔的油无法顺利排出。拆解平衡阀，发现内部单向阀卡死。更换平衡阀后，动作恢复正常。,液压油中杂质导致阀芯卡涩。,"{""schematics"": ""Schematic_COILER1_Hydraulic_System.pdf#page=22"", ""photo_internal"": [""PHOTO_COILER1_BALANCE_VALVE_FAIL_20240628_1700.jpg""], ""oil_analysis_report"": ""REPORT_OIL_COILER1_HYD_20240628.pdf""}"
+F-2024-0077,1#粗轧机 R3电机房,HRM1-R3-ROOM,2024/6/29 9:00,电机房空调故障，室内温度过高，导致变频器过温报警。,空调室外机冷凝器散热不良,检查空调室外机，发现冷凝器翅片被厚厚的灰尘堵塞。使用高压水枪清洗冷凝器后，空调制冷效果恢复。,室外机安装位置环境差，且未定期清理。,"{""thermal_image"": [""IMG_HRM1_R3_AC_CONDENSER_DIRTY_20240629_0910.jpg""], ""photo_internal"": [""PHOTO_HRM1_R3_AC_CONDENSER_CLEANED_20240629_0940.jpg""], ""maintenance_log"": ""Log_AC_System_2024.xlsx""}"
+F-2024-0078,2#精轧机 F6电机,HRM2-RF6-MOTOR,2024/6/29 14:30,F6主电机碳刷火花过大，换向器表面发黑。,电机换向器表面不平整，导致碳刷接触不良。,停机。使用专用砂纸和打磨石对换向器表面进行打磨，并清理片间云母。更换新碳刷，并调整刷握压力。火花恢复正常。,长期电火花烧蚀导致换向器表面出现凹坑。,"{""photo_damage"": [""PHOTO_HRM2_RF6_COMMUTATOR_BURNED_20240629_1530.jpg""], ""maintenance_manual"": ""Manual_DC_Motor_Maintenance.pdf#page=25"", ""vibration"": [""VIB_HRM2_RF6_MOTOR_20240629_1425.csv""]}"
+F-2024-0079,1#加热炉 炉底风机,FURN1-FAN-BOTTOM,2024/6/30 10:00,炉底循环风机轴承温度高报警，达到110摄氏度。,风机轴承强制风冷系统故障,检查风机轴承座，发现用于冷却的外部小风扇没有转。检查电源，发现保险丝烧断。更换保险丝后风扇恢复运转，轴承温度缓慢下降。,小风扇电机卡涩导致电流增大，烧断保险丝。,"{""thermal_image"": [""IMG_FURN1_FAN_BEARING_HOT_20240630_1005.jpg""], ""photo_internal"": [""PHOTO_FURN1_FAN_COOLER_FAIL_20240630_1015.jpg""], ""electrical_drawing"": ""Drawing_E_FURN1_Fan_Control.pdf""}"
+F-2024-0080,2#卷取机 C2区域,COILER2-LUB,2024/6/30 16:00,C2卷取机集中润滑系统报“压力不足”故障。,润滑主管道破裂，导致润滑脂大量泄漏。,启动润滑系统，沿主管道巡查，发现在一处地面电缆沟内有大量润滑脂。清理后发现管道有一处明显的破口。,管道被地面车辆碾压变形，长期振动下产生疲劳裂纹。,"{""photo_leak"": [""PHOTO_COILER2_LUB_PIPE_LEAK_20240630_1615.jpg""], ""schematics"": ""Schematic_Centralized_Lubrication.pdf#page=4""}"
+F-2024-0081,1#精轧机 F1机架,HRM1-RF1-SENSOR,2024/7/1 11:30,F1机架入口高温计（pyrometer）测量温度比实际低100多度。,高温计镜头被水汽和灰尘污染,使用压缩空气吹扫镜头，并用专用擦镜纸清洁。测量温度恢复正常。,镜头吹扫空气压力不足或含有油水。,"{""timeseries_data"": [""PLC_HRM1_RF1_PYROMETER_TEMP_20240701_1125.csv""], ""maintenance_manual"": ""Manual_Pyrometer_Maintenance.pdf#page=9"", ""photo_internal"": [""PHOTO_HRM1_RF1_PYROMETER_LENS_DIRTY_20240701_1135.jpg""]}"
+F-2024-0082,2#粗轧机 R2主减速箱,HRM2-R2-GEARBOX,2024/7/1 17:00,R2主减速箱油位低报警，检查发现油位确实在下限以下。,减速箱输出轴油封老化，导致漏油。,检查减速箱输出轴端盖处，有明显的油迹。随着时间推移，地面上形成一滩油污。安排停机更换输出轴骨架油封。,油封为橡胶件，长期在高温油品环境下老化变硬，失去密封性能。,"{""photo_leak"": [""PHOTO_HRM2_R2_GEARBOX_LEAK_20240701_1705.jpg""], ""drawing"": ""Drawing_A_HRM2_R2_Gearbox_Assembly.pdf"", ""maintenance_manual"": ""Manual_Gearbox_Maintenance.pdf#page=16""}"
+F-2024-0083,1#板坯库 UPS电源,UPS-SLAB-YARD,2024/7/2 9:00,UPS不间断电源报“电池故障”报警，蜂鸣器长鸣。,UPS电池组其中一块电池内阻过大，性能下降。,进入UPS诊断模式，对电池组进行放电测试。发现第7号电池电压下降速度远快于其他电池。将该电池从电池组中断开，报警消除。更换新的同型号电池。,电池达到使用寿命，自然老化。,"{""maintenance_log"": ""Log_UPS_Battery_2024.xlsx"", ""maintenance_manual"": ""Manual_UPS_MGE_Galaxy.pdf#page=42"", ""photo_internal"": [""PHOTO_UPS_BATTERY_FAIL_20240702_0930.jpg""]}"
+F-2024-0084,2#层流冷却区 浊环水泵#3,LFC2-PUMP-03,2024/7/2 14:00,3号泵无法启动，控制柜内变频器无任何显示（黑屏）。,变频器开关电源模块损坏,打开变频器，测量其控制电源输入端（开关电源）电压正常，但输出端无24V DC电压。更换开关电源模块后，变频器上电显示正常。,电网电压波动或模块自身元器件老化。,"{""photo_damage"": [""PHOTO_LFC2_PUMP03_VFD_PS_FAIL_20240702_1430.jpg""], ""electrical_drawing"": ""Drawing_E_LFC2_PUMP03_VFD.pdf"", ""maintenance_manual"": ""Manual_VFD_ABB_ACS800.pdf#page=150""}"
+F-2024-0085,1#加热炉 炉顶热电偶,FURN1-TC-TOP,2024/7/3 10:30,炉顶2号区域热电偶温度读数突然降到室温，导致该区域烧嘴失控。,热电偶补偿导线断裂,检查热电偶接线盒，连接正常。沿补偿导线路径检查，发现在一处拐角被利物划伤，导线已断开。重新连接并做好绝缘保护。,补偿导线敷设路径不当，容易被外力损伤。,"{""timeseries_data"": [""PLC_FURN1_TEMP_ZONE2_20240703_1025.csv""], ""electrical_drawing"": ""Drawing_E_FURN1_Instruments.pdf"", ""photo_damage"": [""PHOTO_FURN1_TC_CABLE_BROKEN_20240703_1045.jpg""]}"
+F-2024-0086,2#精轧机 F4 CPC系统,HRM2-RF4-CPC,2024/7/3 16:00,CPC系统在自动模式下，机架往复摆动，无法稳定在中间位置，导致带钢严重跑偏。,CPC位置传感器（电感式）故障,检查位置传感器，发现其反馈信号剧烈跳动。更换同型号的传感器后，系统恢复稳定。,传感器内部进水，导致电路短路。,"{""timeseries_data"": [""PLC_HRM2_RF4_CPC_SWING_20240703_1555.csv""], ""schematics"": ""Schematic_HRM2_CPC_Hydraulic.pdf"", ""sensor_datasheet"": ""Datasheet_Inductive_Sensor_TURCK.pdf""}"
+F-2024-0087,1#卷取机 C1区域,COILER1-AIR-COMP,2024/7/4 9:00,现场仪表空气压缩机无法启动，报“电机过热”故障，但电机本身是冷的。,电机热敏电阻（PTC）故障或线路断开,断开热敏电阻端子，测量其在常温下的电阻，为无穷大（正常应为几百欧姆）。确认热敏电阻已损坏。临时短接热敏电阻保护端子，电机启动正常。订购新备件。,热敏电阻自身质量问题或老化。,"{""electrical_drawing"": ""Drawing_E_Air_Compressor.pdf"", ""maintenance_log"": ""Log_Air_Compressors_2024.xlsx""}"
+F-2024-0088,2#粗轧机 R3 AGC系统,HRM2-R3-AGC,2024/7/4 15:30,AGC系统压力传感器读数不准，导致厚度控制精度下降。,压力传感器零点漂移,拆下压力传感器，连接到压力校验台进行校准。发现其零点和量程均有较大偏差。重新进行零点和满量程校准。,传感器长期在高温、振动环境下工作，性能发生漂移。,"{""calibration_log"": ""Log_Sensor_Calibration_HRM2_2024.xlsx"", ""maintenance_manual"": ""Manual_Pressure_Transmitter_Rosemount.pdf#page=22"", ""timeseries_data"": [""PLC_HRM2_R3_AGC_PRESSURE_20240704_1525.csv""]}"
+F-2024-0089,1#除鳞箱 阀站,DESCALER1-VALVE-STATION,2024/7/5 11:00,一台除鳞阀在关闭后无法完全密封，仍然有少量高压水通过。,阀门内部的阀芯或阀座磨损,将该阀门从管路上拆下，解体检查。发现阀芯的密封面上有一道明显的冲刷沟槽。更换阀芯和阀座组件。,水中硬质颗粒在高速流动下对阀芯密封面造成冲刷。,"{""photo_damage"": [""PHOTO_DESCALER1_VALVE_CORE_WORN_20240705_1400.jpg""], ""schematics"": ""Schematic_Descaler1_Piping.pdf"", ""drawing"": ""Drawing_A_Descaling_Valve.pdf""}"
+F-2024-0090,2#卷取机 C1运输小车,COILER1-COIL-CAR,2024/7/5 17:00,钢卷运输小车在上升时，升到一半就停了，液压泵站过载。,小车导轨上有异物，卡住了滚轮。,检查小车运行轨道，发现在一侧导轨上卡着一块废钢板。清除异物后，小车运行恢复正常。,现场清理不及时，废料掉入设备运行区域。,"{""photo_internal"": [""PHOTO_COILER1_COIL_CAR_STUCK_20240705_1710.jpg""], ""schematics"": ""Schematic_Coil_Car_Hydraulic.pdf"", ""maintenance_log"": ""Log_COILER1_Area_Cleaning_2024.xlsx""}"
+F-2024-0091,1#精轧机 F2机架,HRM1-RF2-GEARBOX,2024/7/6 10:00,F2机架齿轮箱呼吸器往外喷油，导致现场油污严重。,齿轮箱内部压力过高,检查呼吸器，发现其滤芯已被油泥和灰尘完全堵塞，无法正常“呼吸”。更换新的呼吸器滤芯。,呼吸器是易耗品，未按期更换。,"{""photo_internal"": [""PHOTO_HRM1_RF2_BREATHER_CLOGGED_20240706_1015.jpg""], ""maintenance_manual"": ""Manual_Gearbox_Maintenance.pdf#page=12"", ""oil_analysis_report"": ""REPORT_OIL_HRM1_RF2_GEARBOX_20240705.pdf""}"
+F-2024-0092,2#板坯库 3号吊具,LIFTER-SLAB-03,2024/7/6 15:00,3号吊具的开闭传感器信号时有时无，导致PLC误报警。,传感器的感应距离太远，且安装支架松动。,调整传感器的安装位置，使其更靠近感应目标。并紧固其安装支架。信号恢复稳定。,初次安装调试不到位。,"{""electrical_drawing"": ""Drawing_E_Slab_Lifter_Control.pdf"", ""maintenance_log"": ""Log_LIFTER_SLAB_03_2024.xlsx"", ""photo_internal"": [""PHOTO_LIFTER03_SENSOR_LOOSE_20240706_1515.jpg""]}"
+F-2024-0093,1#层流冷却区 控制阀,LFC1-CONTROL-VALVE,2024/7/7 9:30,一个水量控制阀的阀位反馈与指令不符，导致水量控制不准。,阀门定位器故障,拆下阀门定位器，在试验台上进行测试，发现其输出与输入信号非线性严重。更换新的智能阀门定位器，并重新进行自整定。,定位器内部的反馈电位计磨损。,"{""timeseries_data"": [""PLC_LFC1_VALVE3_CMD_FB_20240707_0925.csv""], ""maintenance_manual"": ""Manual_Valve_Positioner_Siemens.pdf#page=35"", ""photo_internal"": [""PHOTO_LFC1_POSITIONER_FAIL_20240707_1000.jpg""]}"
+F-2024-0094,2#加热炉 炉门#1,FURN2-DOOR-01,2024/7/7 14:30,1号炉门密封不严，有大量高温烟气从门缝泄漏。,炉门耐火材料破损、脱落。,停炉降温。检查炉门，发现其内衬的耐火纤维模块有多处破损和脱落。重新进行浇注和砌筑。,炉门与炉体或钢坯发生碰撞，导致耐火材料受损。,"{""photo_damage"": [""PHOTO_FURN2_DOOR01_REFRACTORY_BROKEN_20240707_1500.jpg""], ""maintenance_log"": ""Log_FURN2_Refractory_2024.xlsx"", ""drawing"": ""Drawing_A_FURN2_DOOR.pdf""}"
+F-2024-0095,1#精轧机 F5机架,HRM1-RF5-WRB,2024/7/8 11:00,F5机架工作辊平衡液压缸泄漏，导致上工作辊无法被有力地抬起。,工作辊平衡缸密封件损坏,拆解液压缸，更换内部全套密封件，包括活塞密封和活塞杆密封。,密封件正常磨损老化。,"{""photo_leak"": [""PHOTO_HRM1_RF5_WRB_CYLINDER_LEAK_20240708_1105.jpg""], ""schematics"": ""Schematic_HRM1_Roll_Balancing.pdf#page=4"", ""drawing"": ""Drawing_A_WRB_Cylinder.pdf""}"
+F-2024-0096,2#卷取机 C1剪切机,COILER1-SHEAR-HYD,2024/7/8 17:00,剪切机液压缸动作时，系统压力瞬间跌落，剪切无力。,液压系统蓄能器氮气压力不足,关闭油路，测量蓄能器的氮气预充压力，发现只有5MPa（正常应为9MPa）。使用充氮车为蓄能器补充氮气至规定压力。,氮气通过皮囊自然渗透，或充气阀有微小泄漏。,"{""timeseries_data"": [""PLC_COILER1_SHEAR_PRESSURE_20240708_1655.csv""], ""maintenance_manual"": ""Manual_Accumulator_Service.pdf#page=10"", ""schematics"": ""Schematic_COILER1_Shear_Hydraulic.pdf""}"
+F-2024-0097,1#粗轧机 R1区域,HRM1-R1-CAMERA,2024/7/9 9:00,用于监控钢坯位置的工业相机图像模糊不清。,相机镜头被灰尘和油污覆盖,使用无尘布和镜头清洁液，仔细擦拭相机镜头和防护罩。图像恢复清晰。,相机安装在开放区域，环境差，且未定期清洁。,"{""photo_internal"": [""PHOTO_HRM1_R1_CAMERA_LENS_DIRTY_20240709_0910.jpg""], ""maintenance_log"": ""Log_Industrial_Cameras_2024.xlsx"", ""maintenance_manual"": ""Manual_Cognex_Camera.pdf#page=25""}"
+F-2024-0098,2#精轧机 F7电机,HRM2-RF7-MOTOR,2024/7/9 15:00,F7主电机轴承非驱动侧温度异常，振动频谱中出现滚动体故障频率。,非驱动侧轴承滚动体出现点蚀,停机，更换电机非驱动侧轴承。检查换下的轴承，发现滚动体表面有明显的麻点。,电流通过轴承，产生电火花烧蚀。可能是接地碳刷失效。,"{""vibration"": [""VIB_HRM2_RF7_NDE_20240709_1455.csv""], ""thermal_image"": [""IMG_HRM2_RF7_NDE_BEARING_HOT_20240709_1458.csv""], ""photo_damage"": [""PHOTO_HRM2_RF7_BEARING_PITTING_20240709_1700.jpg""], ""maintenance_manual"": ""Manual_DC_Motor_Maintenance.pdf#page=30""}"
+F-2024-0099,1#加热炉 炉门#3,FURN1-DOOR-03,2024/7/10 10:30,3号炉门提升链条断裂，导致炉门掉落。,链条长期在高温下使用，强度下降，且存在磨损，最终在承载时断裂。,使用天车将炉门吊起，更换新的高强度耐热链条。,链条选型不当或已超期服役。,"{""photo_damage"": [""PHOTO_FURN1_DOOR03_CHAIN_BROKEN_20240710_1035.jpg""], ""drawing"": ""Drawing_A_FURN1_DOOR_Lifting.pdf"", ""maintenance_log"": ""Log_FURN1_Chains_2024.xlsx""}"
+F-2024-0100,2#卷取机 C2助卷辊,COILER2-PINCHROLL-MOTOR,2024/7/10 16:30,助卷辊液压马达运行时噪音极大，且输出转速不稳。,液压马达轴承损坏,拆解液压马达，发现其内部的滚针轴承已碎裂，滚针散落在壳体内。,液压油污染或长期超压运行。,"{""photo_damage"": [""PHOTO_COILER2_HYDMOTOR_BEARING_FAIL_20240710_1800.jpg""], ""schematics"": ""Schematic_COILER2_Hydraulic_System.pdf#page=18"", ""vibration"": [""VIB_COILER2_PINCHROLL_MOTOR_20240710_1625.csv""]}"
+F-2024-0101,1#精轧机 F4机架,HRM1-RF4-MOTOR,2024/7/11 12:00,F4机架电机运行时，振动突然增大，DCS系统三级报警，紧急停机。,电机与减速箱之间的联轴器螺栓全部剪断,检查传动系统，发现联轴器的所有高强度螺栓均在根部被剪断。更换所有螺栓并重新对中。,轧制过程中发生卡钢等恶性事故，巨大的冲击扭矩导致联轴器螺栓剪断。,"{""vibration"": [""VIB_HRM1_RF4_MOTOR_HIGH_20240711_1158.csv""], ""photo_damage"": [""PHOTO_HRM1_RF4_COUPLING_BOLT_SHEARED_20240711_1230.jpg""], ""maintenance_manual"": ""Manual_Coupling_Installation.pdf#page=10""}"
+F-2024-0102,2#粗轧机 R1液压站,HRM2-HYD-R1-PUMP,2024/7/11 18:00,R1液压站主泵运行时，噪音异常尖锐，出口压力上不去。,液压泵吸空（吸入空气）,检查油箱液位正常。检查泵的吸入管路，发现一个法兰接头松动，有吸气的声音。紧固法兰螺栓后，噪音消失，压力恢复正常。,管路接头在设备振动下松动。,"{""vibration"": [""VIB_HRM2_HYD_R1_PUMP_AERATION_20240711_1755.csv""], ""schematics"": ""Schematic_HRM2_Hydraulic_System.pdf#page=14"", ""photo_internal"": [""PHOTO_HRM2_HYD_R1_FLANGE_LOOSE_20240711_1810.jpg""]}"
+F-2024-0103,1#层流冷却区 浊环水泵#1,LFC1-PUMP-01-VALVE,2024/7/12 10:00,1号泵出口电动蝶阀无法远程关闭。,电动蝶阀执行器电机烧毁,现场手动操作阀门开关正常。检查电动执行器，测量电机线圈电阻无穷大，已烧毁。更换执行器电机。,阀门卡涩后，操作人员强行关阀，导致电机长时间堵转过载。,"{""electrical_drawing"": ""Drawing_E_LFC1_PUMP01_Valve.pdf"", ""photo_damage"": [""PHOTO_LFC1_VALVE_MOTOR_BURNED_20240712_1030.jpg""], ""maintenance_log"": ""Log_LFC1_Valves_2024.xlsx""}"
+F-2024-0104,2#加热炉 步进梁,FURN2-WALKINGBEAM-HYD,2024/7/12 16:00,步进梁平移液压缸油管爆裂，大量液压油喷出。,液压胶管老化，承压能力下降。,停机泄压。更换爆裂的液压胶管。并检查同一批次的其他胶管，发现也有龟裂现象，一并更换。,液压胶管已到使用年限，未按规定进行预防性更换。,"{""photo_leak"": [""PHOTO_FURN2_HOSE_BURST_20240712_1605.jpg""], ""schematics"": ""Schematic_FURN2_WalkingBeam_Hydraulic.pdf"", ""maintenance_log"": ""Log_Hydraulic_Hoses_2024.xlsx""}"
+F-2024-0105,1#精轧机 F6机架,HRM1-RF6-HGC,2024/7/13 11:30,F6机架HGC系统在轧制薄规格时，出现高频振动，俗称“颤钢”。,HGC伺服控制器增益设置过高，导致系统不稳定。,在工程师站中，适当降低HGC伺服控制器的速度环和位置环增益。高频振动消失。,为了追求高响应速度，将控制器参数设置在临界稳定点，当工况变化时就容易失稳。,"{""vibration"": [""VIB_HRM1_RF6_CHATTER_20240713_1128.csv""], ""timeseries_data"": [""PLC_HRM1_RF6_HGC_OSCILLATION_20240713_1128.csv""], ""maintenance_manual"": ""Manual_HGC_Tuning_Guide.pdf#page=35""}"
+F-2024-0106,2#卷取机 C1电机,COILER1-MOTOR-COOL,2024/7/13 17:30,C1卷取机主电机冷却水流量低报警。,电机空-水冷却器堵塞,检查冷却水系统，发现进入电机的冷却水压力正常，但回水压力极低。判断冷却器内部堵塞。拆开冷却器，发现内部管束被水垢堵死。进行清洗。,冷却水水质差，硬度高。,"{""timeseries_data"": [""PLC_COILER1_MOTOR_COOLING_FLOW_20240713_1725.csv""], ""photo_internal"": [""PHOTO_COILER1_COOLER_CLOGGED_20240713_1830.jpg""], ""schematics"": ""Schematic_Motor_Cooling_System.pdf""}"
+F-2024-0107,1#粗轧机 R2区域,HRM1-R2-LUB,2024/7/14 10:00,R2机架附近的地面上到处是黄油，一个自动润滑分配器爆裂。,润滑管路末端堵塞，导致分配器超压爆裂。,检查该分配器负责的所有润滑点，发现其中一个轴承座的油嘴已被外物撞坏并堵死。更换油嘴和爆裂的分配器。,设备点检不到位，未能及时发现损坏的油嘴。,"{""photo_leak"": [""PHOTO_HRM1_R2_LUB_DISTRIBUTOR_BROKEN_20240714_1005.jpg""], ""schematics"": ""Schematic_Centralized_Lubrication_HRM1.pdf#page=8""}"
+F-2024-0108,2#精轧机 F5机架,HRM2-RF5-DRIVE,2024/7/14 16:00,F5主电机变频器报“IGBT故障”， kırmızı bir ışık yanıp sönüyor (红灯闪烁)。,变频器功率模块（IGBT）损坏,使用万用表二极管档测量IGBT模块，发现其中一个已击穿。更换新的IGBT模块。,IGBT模块过热、过流或达到使用寿命。,"{""photo_damage"": [""PHOTO_HRM2_RF5_IGBT_FAIL_20240714_1630.jpg""], ""maintenance_manual"": ""Manual_VFD_ABB_ACS800.pdf#page=180"", ""electrical_drawing"": ""Drawing_E_HRM2_RF5_Drive_Cabinet.pdf""}"
+F-2024-0109,1#加热炉 废气分析仪,FURN1-GAS-ANALYZER,2024/7/15 11:00,废气分析仪O2读数异常低，与实际严重不符。,分析仪取样泵故障，无法将烟气抽入分析仪。,检查分析仪，听到取样泵没有工作的声音。测量泵的电机，已烧毁。更换取样泵。,泵的隔膜老化破裂，烟气中的冷凝水进入泵体导致电机短路。,"{""photo_damage"": [""PHOTO_FURN1_ANALYZER_PUMP_FAIL_20240715_1120.jpg""], ""maintenance_manual"": ""Manual_Gas_Analyzer_Siemens.pdf#page=28""}"
+F-2024-0110,2#卷取机 C2液压系统,COILER2-HYD-FILTER,2024/7/15 17:00,液压站高压滤芯压差报警。,高压滤芯达到饱和，需要更换。,切换到备用滤芯。更换报警的滤芯。,滤芯正常寿命到期。,"{""maintenance_log"": ""Log_Hydraulic_Filters_2024.xlsx"", ""schematics"": ""Schematic_COILER2_Hydraulic_System.pdf#page=10""}"
+F-2024-0111,1#精轧机 F3电机,HRM1-RF3-MOTOR,2024/7/16 10:30,F3主电机运行时，有明显的焦糊味，且外壳温度异常高。,电机通风不畅，内部积灰严重，影响散热。,停机，打开电机端盖，发现内部绕组和铁芯上覆盖了厚厚一层碳粉和灰尘的混合物。使用压缩空气和吸尘器进行彻底清扫。,电机防护等级不足，或密封有缺陷，导致外部灰尘进入。,"{""thermal_image"": [""IMG_HRM1_RF3_MOTOR_HOT_20240716_1028.csv""], ""photo_internal"": [""PHOTO_HRM1_RF3_MOTOR_DIRTY_20240716_1100.jpg""], ""maintenance_manual"": ""Manual_DC_Motor_Maintenance.pdf#page=15""}"
+F-2024-0112,2#板坯库 天车轨道,CRANE-TRACK-SLAB,2024/7/16 16:00,天车行走时，在某一段轨道有剧烈的颠簸和撞击声。,天车轨道接头处松动，两根钢轨产生错台。,检查轨道，发现在一处接头，连接夹板螺栓松动，导致两根钢轨端部有超过5mm的高度差。重新对齐钢轨并紧固所有螺栓。,日常轨道巡检不到位。,"{""photo_damage"": [""PHOTO_CRANE_TRACK_JOINT_FAULT_20240716_1615.jpg""], ""maintenance_manual"": ""Manual_Crane_Track_Maintenance.pdf#page=9""}"
+F-2024-0113,1#层流冷却区 浊环水泵#2,LFC1-PUMP-02,2024/7/17 11:00,2号泵电机启动电流比平时大很多，启动时间变长。,泵的叶轮与泵壳之间有异物卡住。,停机。反向盘动泵的联轴器，感觉有阻力。拆开泵壳，发现叶轮流道内卡着一块木头。清除异物后，电机启动恢复正常。,回水渠的格栅破损，未能拦截大块杂物。,"{""timeseries_data"": [""PLC_LFC1_PUMP02_STARTUP_CURRENT_20240717_1058.csv""], ""photo_internal"": [""PHOTO_LFC1_PUMP02_IMPELLER_STUCK_20240717_1145.jpg""], ""maintenance_log"": ""Log_LFC1_Pumps_2024.xlsx""}"
+F-2024-0114,2#精轧机 F1机架,HRM2-RF1-WRB,2024/7/17 17:30,F1机架换辊后，上工作辊无法抬起，被卡住。,工作辊平衡系统窜油，导致液压缸两侧压力失衡。,检查平衡液压缸，发现其活塞密封损坏，导致有杆腔和无杆腔之间的液压油互通。更换液压缸密封件。,密封件磨损老化。,"{""schematics"": ""Schematic_HRM2_Roll_Balancing.pdf#page=4"", ""maintenance_log"": ""Log_HRM2_Hydraulics_2024.xlsx""}"
+F-2024-0115,1#卷取机 C1区域,COILER1-AIR-DRYER,2024/7/18 10:00,仪表空气干燥机无法正常排水，导致压缩空气含水量超标。,干燥机的自动排水器电磁阀卡死,手动操作排水器可以排水。检查电磁阀，发现其阀芯卡在关闭位置。清洗或更换电磁阀。,压缩空气中的油污和杂质导致电磁阀卡涩。,"{""photo_internal"": [""PHOTO_COILER1_AIR_DRYER_DRAIN_FAIL_20240718_1020.jpg""], ""maintenance_manual"": ""Manual_Air_Dryer.pdf#page=12""}"
+F-2024-0116,2#粗轧机 R3电机,HRM2-R3-MOTOR,2024/7/18 16:30,R3主电机运行时，换向器火花呈环状，俗称“环火”。,换向器片间云母凸出，导致碳刷被弹开，接触不良。,停机。使用专用工具下刻换向器片间云母，使其低于换向片表面。并对换向器表面进行精细打磨。,电机长期运行，铜质的换向片磨损速度快于云母，导致云母凸出。,"{""photo_damage"": [""PHOTO_HRM2_R3_COMMUTATOR_RINGFIRE_20240718_1628.jpg""], ""maintenance_manual"": ""Manual_DC_Motor_Maintenance.pdf#page=28""}"
+F-2024-0117,1#除鳞箱 出口,DESCALER1-EXIT,2024/7/19 11:00,出口侧的挡水帘破损严重，大量高压水溅射到后续设备上。,挡水帘的橡胶材料老化、开裂。,停机。更换新的挡水帘。,橡胶在高温、高湿环境下自然老化。,"{""photo_damage"": [""PHOTO_DESCALER1_CURTAIN_BROKEN_20240719_1105.jpg""], ""maintenance_log"": ""Log_Descaler_Spares_2024.xlsx""}"
+F-2024-0118,2#卷取机 C2区域,COILER2-WELDING,2024/7/19 17:00,用于连接钢卷的焊机无法起弧，无法进行焊接。,焊机接地不良,检查焊接回路，发现接地电缆的夹子与钢带接触点有严重的氧化层。打磨接触点，并夹紧接地夹。焊接恢复正常。,现场环境潮湿，导致接触点氧化。,"{""photo_internal"": [""PHOTO_COILER2_WELDER_GROUND_BAD_20240719_1710.jpg""], ""maintenance_manual"": ""Manual_Welding_Machine.pdf#page=19""}"
+F-2024-0119,1#精轧机 F7机架,HRM1-RF7-GEARBOX,2024/7/20 10:00,F7机架齿轮箱振动值持续升高，在线油液监测系统报“金属颗粒超标”。,齿轮箱内轴承已进入严重磨损期,停机，对齿轮箱进行内窥镜检查，发现一个轴承的滚子表面有剥落。安排大修更换此轴承。,轴承达到疲劳寿命。,"{""vibration"": [""VIB_HRM1_RF7_GEARBOX_HIGH_20240720_0955.csv""], ""oil_analysis_report"": ""REPORT_ONLINE_OIL_HRM1_RF7_20240720.pdf"", ""photo_internal"": [""PHOTO_HRM1_RF7_BEARING_SPALLING_ENDOSCOPE_20240720_1100.jpg""]}"
+F-2024-0120,2#加热炉 炉门#3,FURN2-DOOR-03-DRIVE,2024/7/20 16:30,3号炉门提升电机过载，检查发现机械部分很重。,炉门导轨润滑不良，导致摩擦力过大。,对炉门两侧的导轨和滚轮进行彻底清理，并涂抹耐高温润滑脂。电机负载恢复正常。,高温环境下润滑脂易流失，需要更频繁地进行补充。,"{""timeseries_data"": [""PLC_FURN2_DOOR03_MOTOR_CURRENT_20240720_1625.csv""], ""maintenance_log"": ""Log_FURN2_Doors_LUB_2024.xlsx""}"
+F-2024-0121,1#粗轧机 R3电机,HRM1-R3-TACHO,2024/7/21 11:00,R3主电机速度反馈不稳定，导致轧制速度波动。,测速发电机碳刷磨损，接触不良。,检查安装在电机尾部的测速发电机，发现其碳刷已磨损到极限。更换新碳刷后，速度反馈信号稳定。,碳刷是易损件，未按期检查更换。,"{""timeseries_data"": [""PLC_HRM1_R3_SPEED_FB_FLUCTUATE_20240721_1055.csv""], ""photo_damage"": [""PHOTO_HRM1_R3_TACHO_BRUSH_WORN_20240721_1115.jpg""], ""electrical_drawing"": ""Drawing_E_HRM1_R3_Control.pdf""}"
+F-2024-0122,2#精轧机 F2机架,HRM2-RF2-COOLING,2024/7/21 17:00,F2机架的冷却水回水管路振动剧烈，噪音很大。,管路中存在气穴，水流不稳定。,打开管路最高点的排气阀，排出大量气体后，振动和噪音消失。,系统在停机后重新注水时，空气未排尽。,"{""maintenance_log"": ""Log_HRM2_Cooling_System_2024.xlsx"", ""schematics"": ""Schematic_HRM2_Cooling_System.pdf#page=9""}"
+F-2024-0123,1#卷取机 C1区域,COILER1-HPU,2024/7/22 10:00,液压动力单元（HPU）油箱温度高报警。,油箱内的冷却水盘管泄漏，导致水进入油中，油品乳化，散热性能下降。,对油品进行取样化验，确认含水量超标。排空油箱，对冷却盘管进行压力测试，发现泄漏点。补焊或更换盘管，并更换全部液压油。,盘管腐蚀或焊缝质量问题。,"{""oil_analysis_report"": ""REPORT_OIL_COILER1_HPU_WATER_HIGH_20240722.pdf"", ""thermal_image"": [""IMG_COILER1_HPU_HOT_20240722_0955.jpg""], ""photo_damage"": [""PHOTO_COILER1_HPU_COIL_LEAK_20240722_1400.jpg""]}"
+F-2024-0124,2#板坯库 5号天车,CRANE-SLAB-05-DRIVE,2024/7/22 16:30,5号天车大车行走时，其中一个驱动轮空转，不输出动力。,驱动半轴断裂,检查该驱动轮的传动系统，发现连接减速箱和车轮的半轴已断裂。,半轴存在材料缺陷或长期疲劳。,"{""photo_damage"": [""PHOTO_CRANE05_AXLE_BROKEN_20240722_1700.jpg""], ""drawing"": ""Drawing_A_CRANE05_Wheel_Assembly.pdf"", ""maintenance_log"": ""Log_CRANE_SLAB_05_2024.xlsx""}"
+F-2024-0125,1#层流冷却区,LFC1-LIGHTING,2024/7/23 9:00,层流冷却区的一个照明灯不亮。,灯具的镇流器烧毁,更换灯管无效。测量镇流器输入电压正常，输出为0。更换镇流器后，灯点亮。,镇流器质量问题或老化。,"{""electrical_drawing"": ""Drawing_E_LFC1_Lighting.pdf"", ""maintenance_log"": ""Log_Lighting_System_2024.xlsx""}"
+F-2024-0126,2#加热炉 炉门#2,FURN2-DOOR-02-SENSOR,2024/7/23 15:00,2号炉门上限位开关信号丢失，导致炉门提升时无法自动停止。,限位开关被外物撞坏,检查炉门上限位开关，发现其外壳已破碎，内部元件损坏。更换新的限位开关。,炉门在运行中与未知物体发生碰撞。,"{""photo_damage"": [""PHOTO_FURN2_DOOR02_LIMIT_SWITCH_BROKEN_20240723_1510.jpg""], ""electrical_drawing"": ""Drawing_E_FURN2_Door_Control.pdf""}"
+F-2024-0127,1#精轧机 F5机架,HRM1-RF5-HYD,2024/7/24 11:00,F5机架液压系统主管道压力异常波动，导致多个执行机构动作不稳。,主泵的压力补偿器故障,检查主泵，发现其压力补偿控制器响应迟钝。拆解后发现内部弹簧断裂。更换弹簧组件后，压力恢复稳定。,弹簧达到疲劳寿命。,"{""timeseries_data"": [""PLC_HRM1_HYD_PRESSURE_FLUCTUATE_20240724_1055.csv""], ""schematics"": ""Schematic_Main_Hydraulic_Pump.pdf"", ""photo_damage"": [""PHOTO_HRM1_PUMP_COMPENSATOR_SPRING_BROKEN_20240724_1400.jpg""]}"
+F-2024-0128,2#卷取机 C1运输链,COILER1-CHAIN-LUB,2024/7/24 17:00,钢卷运输链自动润滑系统不工作。,润滑泵电机无法启动，接触器不吸合。,检查控制回路，发现启动按钮的常开触点接触不良。更换启动按钮后，系统恢复正常。,按钮触点氧化或机械故障。,"{""electrical_drawing"": ""Drawing_E_Chain_Lubrication.pdf"", ""maintenance_log"": ""Log_COILER1_LUB_2024.xlsx""}"
+F-2024-0129,1#粗轧机 R2减速箱,HRM1-R2-GEARBOX,2024/7/25 10:00,R2减速箱油位镜模糊不清，无法观察油位。,油位镜老化，内部被油泥污染。,更换新的油位镜。,塑料材质的油位镜在高温油品环境下长期使用后会老化变色。,"{""photo_internal"": [""PHOTO_HRM1_R2_OIL_LEVEL_GAUGE_DIRTY_20240725_1010.jpg""], ""maintenance_log"": ""Log_HRM1_R2_GEARBOX_2024.xlsx""}"
+F-2024-0130,2#精轧机 F6机架,HRM2-RF6-HPU,2024/7/25 16:30,HGC液压动力单元（HPU）的一台主泵无法启动。,电机与泵之间的联轴器弹性体已粉碎,手动盘动电机，转动正常。盘动泵，无法转动。拆开联轴器护罩，发现内部的梅花形弹性体已经完全碎裂。更换弹性体后，启动正常。,弹性体老化，或电机与泵对中不良，导致弹性体异常磨损。,"{""photo_damage"": [""PHOTO_HRM2_RF6_HPU_COUPLING_BROKEN_20240725_1645.jpg""], ""drawing"": ""Drawing_A_Pump_Motor_Coupling.pdf""}"
+F-2024-0131,1#加热炉 煤气管道,FURN1-GAS-PIPE,2024/7/26 11:00,煤气管道上一个手动阀门关不严，有少量煤气泄漏。,阀门内部密封圈损坏,关闭上游总阀。拆解该手动阀门，发现其球体密封圈（聚四氟乙烯）已有破损。更换密封圈。,阀门开关过于频繁或煤气中杂质导致密封圈磨损。,"{""photo_damage"": [""PHOTO_FURN1_VALVE_SEAL_BROKEN_20240726_1400.jpg""], ""maintenance_log"": ""Log_FURN1_Valves_2024.xlsx""}"
+F-2024-0132,2#卷取机 C1助卷辊,COILER2-PINCHROLL-LIFT,2024/7/26 17:00,下助卷辊升降不平，一侧高一侧低。,两侧的升降机构机械不同步,检查两侧的同步齿轮齿条机构，发现一侧的齿条固定螺栓松动，导致齿条移位。重新固定并校准两侧齿条的位置。,设备振动导致螺栓松动。,"{""photo_internal"": [""PHOTO_COILER2_PINCHROLL_RACK_LOOSE_20240726_1720.jpg""], ""drawing"": ""Drawing_A_Pinch_Roll_Lifting.pdf""}"
+F-2024-0133,1#精轧机 F7 PLC,HRM1-RF7-PLC,2024/7/27 10:00,主PLC的CPU模块报“硬件故障”，进入STOP模式，全线停机。,PLC的CPU模块硬件故障,尝试复位和重启CPU无效。更换备用的CPU模块，并重新下载程序和组态。系统恢复正常。,CPU模块达到使用寿命或受到电网浪涌冲击。,"{""photo_damage"": [""PHOTO_HRM1_PLC_CPU_FAIL_20240727_1030.jpg""], ""maintenance_log"": ""Log_PLC_Main_2024.xlsx"", ""electrical_drawing"": ""Drawing_E_Main_PLC_Rack.pdf""}"
+F-2024-0134,2#粗轧机 R1电机,HRM2-R1-TACHO,2024/7/27 16:30,R1电机速度反馈为0，但电机在转。,测速发电机联轴器断裂,检查电机尾部的测速发电机，发现其与电机轴连接的联轴器已断裂，导致测速机不转。更换联轴器。,联轴器疲劳断裂。,"{""photo_damage"": [""PHOTO_HRM2_R1_TACHO_COUPLING_BROKEN_20240727_1640.jpg""], ""electrical_drawing"": ""Drawing_E_HRM2_R1_Control.pdf""}"
+F-2024-0135,1#层流冷却区,LFC1-EMERGENCY-STOP,2024/7/28 9:30,现场一个急停按钮被按下后，无法复位。,急停按钮机械结构卡死,拆解该急停按钮，发现内部有异物（铁屑），导致复位弹簧无法弹起。清理异物后恢复正常。,按钮防护等级不够，现场环境差。,"{""photo_internal"": [""PHOTO_LFC1_ESTOP_STUCK_20240728_0940.jpg""], ""electrical_drawing"": ""Drawing_E_LFC1_Safety_Circuit.pdf""}"
+F-2024-0136,2#加热炉 辐射管,FURN2-RADIANT-TUBE,2024/7/28 15:00,一个U型辐射管变形严重，几乎接触到板坯。,辐射管长期在高温下使用，发生高温蠕变和下垂。,停炉降温。更换变形的辐射管。,辐射管材料选择不当或已超期服役。,"{""photo_damage"": [""PHOTO_FURN2_RADIANT_TUBE_BENT_20240728_1800.jpg""], ""drawing"": ""Drawing_A_FURN2_Radiant_Tube.pdf"", ""maintenance_log"": ""Log_FURN2_Tubes_2024.xlsx""}"
+F-2024-0137,1#精轧机 F6机架,HRM1-RF6-DRIVE,2024/7/29 11:00,F6主传动变频器报“通讯丢失”故障。,连接PLC和变频器的Profibus通讯电缆接头松动。,检查变频器侧的Profibus接头，发现没有锁紧。重新插拔并锁紧接头后，通讯恢复。,维护人员作业后忘记锁紧接头。,"{""electrical_drawing"": ""Drawing_E_HRM1_Profibus_Network.pdf"", ""maintenance_log"": ""Log_HRM1_Drives_2024.xlsx""}"
+F-2024-0138,2#卷取机 C1操作台,COILER1-CONSOLE-BUTTON,2024/7/29 17:00,操作台上的一个指示灯不亮，但对应设备在运行。,指示灯的灯泡烧毁,更换同型号的LED指示灯泡后恢复正常。,灯泡达到使用寿命。,"{""photo_internal"": [""PHOTO_COILER1_CONSOLE_LAMP_FAIL_20240729_1705.jpg""], ""electrical_drawing"": ""Drawing_E_COILER1_Console.pdf""}"
+F-2024-0139,1#粗轧机 R3电机房,HRM1-R3-FIRE-ALARM,2024/7/30 10:00,电机房烟雾报警器误报警。,报警器探头内有大量灰尘，影响了光学传感。,使用压缩空气对报警器探头进行吹扫清理。报警消除。,设备清洁工作有疏漏。,"{""photo_internal"": [""PHOTO_HRM1_R3_FIRE_ALARM_DUSTY_20240730_1005.jpg""], ""maintenance_log"": ""Log_Fire_Alarm_System_2024.xlsx""}"
+F-2024-0140,2#精轧机 F1机架,HRM2-RF1-GEARBOX,2024/7/30 16:30,F1机架齿轮箱输入轴轴承温度高。,润滑油流量不足,检查供给该轴承的润滑油管路，发现节流阀开度过小。适当调大节流阀开度后，温度下降。,调试或维护后，节流阀未调整到正确位置。,"{""timeseries_data"": [""PLC_HRM2_RF1_GEARBOX_BEARING_TEMP_20240730_1625.csv""], ""schematics"": ""Schematic_HRM2_Lubrication_System.pdf#page=10""}"
+F-2024-0141,1#加热炉 炉壳,FURN1-SHELL,2024/7/31 11:00,炉壳一处钢板发红，温度异常高。,该处的内部耐火材料脱落，导致炉壳直接暴露在高温下。,紧急处理，使用喷涂料对该处进行临时封堵。待停炉后，再进行内部的彻底修复。,耐火材料达到使用寿命或施工质量问题。,"{""thermal_image"": [""IMG_FURN1_SHELL_HOTSPOT_20240731_1105.jpg""], ""photo_damage"": [""PHOTO_FURN1_SHELL_RED_20240731_1105.jpg""], ""maintenance_log"": ""Log_FURN1_Refractory_2024.xlsx""}"
+F-2024-0142,2#卷取机 C2剪切机,COILER2-SHEAR-MOTOR,2024/7/31 17:00,剪切机电机刹车失灵，无法可靠抱闸。,刹车片磨损严重,拆开电机刹车，发现刹车片已磨损至金属基体。更换新的刹车片，并调整刹车间隙。,刹车片是易损件，正常磨损。,"{""photo_damage"": [""PHOTO_COILER2_SHEAR_BRAKE_WORN_20240731_1730.jpg""], ""maintenance_manual"": ""Manual_Motor_Brake_SEW.pdf#page=15""}"
+F-2024-0143,1#精轧机 F4机架,HRM1-RF4-COOLANT,2024/8/1 10:00,轧制乳化液浓度不稳定，时高时低。,乳化液配比系统的皂化液注入泵故障,检查注入泵，发现其出口单向阀卡死，导致无法正常泵出皂化液。清洗单向阀后恢复正常。,皂化液结晶导致阀芯卡涩。,"{""maintenance_log"": ""Log_Emulsion_System_2024.xlsx"", ""schematics"": ""Schematic_Emulsion_Mixing_System.pdf""}"
+F-2024-0144,2#粗轧机 R2电机,HRM2-R2-BRUSH,2024/8/1 16:30,R2主电机的一个刷握弹簧断裂，导致碳刷无法压紧在换向器上。,弹簧疲劳断裂,更换新的刷握弹簧。,弹簧是易损件，达到疲劳寿命。,"{""photo_damage"": [""PHOTO_HRM2_R2_BRUSH_SPRING_BROKEN_20240801_1640.jpg""], ""maintenance_manual"": ""Manual_DC_Motor_Maintenance.pdf#page=22""}"
+F-2024-0145,1#层流冷却区,LFC1-WALKWAY,2024/8/2 9:00,设备上方的检修走台一块格栅板断裂，存在安全隐患。,格栅板长期被水汽腐蚀，承载能力下降。,更换新的玻璃钢格栅板。,材料选择不当，应使用更耐腐蚀的材料。,"{""photo_damage"": [""PHOTO_LFC1_GRATING_BROKEN_20240802_0905.jpg""], ""maintenance_log"": ""Log_Civil_Structures_2024.xlsx""}"
+F-2024-0146,2#加热炉 空燃比,FURN2-AIR-FUEL-RATIO,2024/8/2 15:00,空燃比控制系统报警，显示空气流量测量值不可信。,空气流量计（文丘里管）的差压变送器正负压引压管接反。,检查差压变送器接管，发现正负压管路接反。纠正接线后，流量显示正常。,仪表维护人员作业失误。,"{""timeseries_data"": [""PLC_FURN2_AIR_FLOW_NEGATIVE_20240802_1455.csv""], ""schematics"": ""Schematic_FURN2_Control_System.pdf#page=12"", ""maintenance_log"": ""Log_FURN2_Instruments_2024.xlsx""}"
+F-2024-0147,1#精轧机 F1机架,HRM1-RF1-BUR,2024/8/3 11:00,F1机架换辊后，下支撑辊轴承座无法锁紧。,液压锁紧螺母故障,检查锁紧螺母，发现其内部的充压油路堵塞，无法建立压力。更换备用锁紧螺母。,油路中进入杂质导致堵塞。,"{""schematics"": ""Schematic_BUR_Locking_System.pdf"", ""maintenance_manual"": ""Manual_BackupRoll_Bearing.pdf#page=40""}"
+F-2024-0148,2#卷取机 C1区域,COILER1-SCRAP-BALLER,2024/8/3 17:00,废边打包机无法正常旋转，液压马达过载。,打包机内部卡了大量废边，导致旋转阻力过大。,停机，手动将卡住的废边清理出来。打包机恢复正常。,操作人员一次性送入过多废边。,"{""photo_internal"": [""PHOTO_COILER1_SCRAP_BALLER_STUCK_20240803_1715.jpg""], ""maintenance_log"": ""Log_Scrap_System_2024.xlsx""}"
+F-2024-0149,1#粗轧机 R3区域,HRM1-R3-SCALE-PIT,2024/8/4 10:00,氧化铁皮坑的抓斗天车无法起升。,起升电机过载，热继电器跳闸。,检查抓斗，发现其抓取了过多的氧化铁皮，重量超出电机额定负载。减少抓取量后，起升正常。,操作人员操作不当。,"{""timeseries_data"": [""PLC_CRANE_SCALE_PIT_CURRENT_HIGH_20240804_0958.csv""], ""electrical_drawing"": ""Drawing_E_CRANE_SCALE_PIT.pdf""}"
+F-2024-0150,2#精轧机 F7机架,HRM2-RF7-LOOPER,2024/8/4 16:30,活套无法抬起，液压缸不动作。,活套提升液压缸的电磁换向阀未得电。,测量电磁阀线圈两端电压为0V。检查PLC输出，有24V输出。沿线路检查，发现中间继电器损坏。更换继电器后，阀得电，活套动作正常。,继电器触点烧结或线圈烧毁。,"{""photo_damage"": [""PHOTO_HRM2_RF7_LOOPER_RELAY_FAIL_20240804_1645.jpg""], ""electrical_drawing"": ""Drawing_E_HRM2_RF7_Looper_Control.pdf""}"
+F-2024-0151,1#加热炉 汽化冷却系统,FURN1-VAPOR-COOLING,2024/8/5 11:00,汽包液位计显示液位异常高，与实际不符。,磁翻板液位计的浮子卡住。,使用磁铁在液位计外部上下移动，浮子脱开卡涩，液位显示恢复正常。,介质中存在杂质，导致浮子在导管内卡住。,"{""photo_internal"": [""PHOTO_FURN1_LEVEL_GAUGE_STUCK_20240805_1110.jpg""], ""schematics"": ""Schematic_FURN1_Vapor_Cooling.pdf""}"
+F-2024-0152,2#卷取机 C2区域,COILER2-MARKING,2024/8/5 17:00,钢卷打号机字符不清晰，缺笔少画。,打号机的喷头堵塞,执行喷头清洗程序无效。拆下喷头，使用超声波清洗机进行深度清洗。安装后打号恢复清晰。,使用的墨水质量不佳，易凝固。,"{""photo_damage"": [""PHOTO_COILER2_MARKING_BAD_20240805_1655.jpg""], ""maintenance_manual"": ""Manual_Marking_Machine.pdf#page=22""}"
+F-2024-0153,1#精轧机 F2机架,HRM1-RF2-LUB,2024/8/6 10:00,油膜轴承润滑站一台主泵启动后，出口压力为0。,泵的旋转方向反了,停机，检查电机接线，发现A、C两相电缆被接反。调整相序后，泵出口压力正常。,电气人员在接线时失误。,"{""electrical_drawing"": ""Drawing_E_Morgoil_Pump_Station.pdf"", ""maintenance_log"": ""Log_HRM1_Morgoil_System_2024.xlsx""}"
+F-2024-0154,2#粗轧机 R1电机房,HRM2-R1-TRANSFORMER,2024/8/6 16:30,主传动变压器油温高报警。,变压器冷却风扇未启动。,检查变压器温控器，发现其设定温度过高。将风扇启动温度设定值调低后，风扇正常启动，油温下降。,温控器参数被误修改。,"{""thermal_image"": [""IMG_HRM2_R1_TRANSFORMER_HOT_20240806_1628.jpg""], ""electrical_drawing"": ""Drawing_E_HRM2_R1_Transformer.pdf""}"
+F-2024-0155,1#层流冷却区,LFC1-PH-METER,2024/8/7 9:30,冷却水电导率仪读数异常，远低于正常值。,电导率仪的电极被油污覆盖，影响测量。,取出电极，使用酒精和软布进行清洁。重新放入后，读数恢复正常。,乳化液泄漏到冷却水中，油污附着在电极表面。,"{""maintenance_manual"": ""Manual_Conductivity_Meter.pdf#page=15"", ""photo_internal"": [""PHOTO_LFC1_ELECTRODE_DIRTY_20240807_0940.jpg""]}"
+F-2024-0156,2#加热炉 除尘风机,FURN2-DUST-FAN,2024/8/7 15:00,除尘风机入口挡板卡在半开位置，无法调节。,挡板轴承缺油卡死,对挡板两侧的轴承座注入大量润滑脂，并反复活动挡板。最终活动恢复自如。,润滑保养周期过长。,"{""maintenance_log"": ""Log_FURN2_Fans_LUB_2024.xlsx"", ""drawing"": ""Drawing_A_FURN2_Dust_Fan_Damper.pdf""}"
+F-2024-0157,1#精轧机 F5机架,HRM1-RF5-SPC,2024/8/8 11:00,带钢头尾形状控制系统（SPC）不起作用，头尾厚度超差严重。,SPC功能未在HMI上激活。,在HMI工艺参数界面，勾选激活SPC功能选项。系统恢复正常。,操作人员在设定工艺参数时，漏掉了该选项。,"{""maintenance_log"": ""Log_HMI_Operations_2024.xlsx"", ""maintenance_manual"": ""Manual_SPC_Operation.pdf#page=10""}"
+F-2024-0158,2#卷取机 C1区域,COILER1-BANDING,2024/8/8 17:00,钢卷打捆机无法收紧钢带。,打捆机的收紧轮磨损，摩擦力不足。,更换新的带有花纹的收紧轮。打捆功能恢复正常。,收紧轮是易损件，正常磨损。,"{""photo_damage"": [""PHOTO_COILER1_BANDING_WHEEL_WORN_20240808_1720.jpg""], ""maintenance_manual"": ""Manual_Banding_Machine.pdf#page=31""}"
+F-2024-0159,1#粗轧机 R2电机,HRM1-R2-GROUND,2024/8/9 10:00,主电机接地碳刷磨损严重，导致轴电流增大。,接地碳刷磨损至极限。,更换新的接地碳刷。,碳刷是易损件，未按期检查更换。,"{""photo_damage"": [""PHOTO_HRM1_R2_GROUND_BRUSH_WORN_20240809_1015.jpg""], ""maintenance_manual"": ""Manual_DC_Motor_Maintenance.pdf#page=32""}"
+F-2024-0160,2#精轧机 F3机架,HRM2-RF3-HMI,2024/8/9 16:30,机架旁的操作箱屏幕显示花屏，看不清内容。,操作箱的显示屏排线接触不良,断电后，重新插拔连接主板和显示屏的排线。上电后显示恢复正常。,设备振动导致排线松动。,"{""photo_damage"": [""PHOTO_HRM2_RF3_HMI_SCREEN_BAD_20240809_1635.jpg""], ""electrical_drawing"": ""Drawing_E_Local_HMI_Box.pdf""}"
+F-2024-0161,1#加热炉 炉底辊,FURN1-HEARTH-ROLL,2024/8/10 11:00,一根炉底辊表面结瘤严重，划伤了板坯下表面。,炉底辊结瘤,停炉降温。使用专用工具打磨清除炉底辊表面的结瘤。,炉内气氛控制不当，或钢坯氧化铁皮脱落黏结。,"{""photo_damage"": [""PHOTO_FURN1_ROLL_NODULATION_20240810_1500.jpg"", ""PHOTO_SLAB_SCRATCH_BOTTOM_20240810_1055.jpg""], ""maintenance_log"": ""Log_FURN1_Rolls_2024.xlsx""}"
+F-2024-0162,2#卷取机 C2剪切机,COILER2-SHEAR-GAP,2024/8/10 17:00,剪切机刀片间隙过大，导致切不断厚规格钢带。,刀片间隙调整机构的锁紧螺母松动,重新调整刀片间隙至标准值，并锁紧防松螺母。,设备振动导致螺母松动。,"{""maintenance_manual"": ""Manual_Coiler_Shear.pdf#page=25"", ""drawing"": ""Drawing_A_Shear_Gap_Adjustment.pdf""}"
+F-2024-0163,1#精轧机 F7机架,HRM1-RF7-CYLINDER,2024/8/11 10:00,HGC液压缸的球形支撑座磨损严重，导致液压缸受力不均。,球形支撑座润滑不良，导致干摩擦磨损。,更换新的球形支撑座（球碗），并改善润滑。,润滑点设计不合理或润滑脂未按时加注。,"{""photo_damage"": [""PHOTO_HRM1_RF7_SPHERICAL_SUPPORT_WORN_20240811_1400.jpg""], ""drawing"": ""Drawing_A_HGC_Cylinder_Mounting.pdf""}"
+F-2024-0164,2#粗轧机 R3电机,HRM2-R3-COOLER,2024/8/11 16:30,电机冷却器漏水，导致电机房地面有积水。,冷却器管束与管板连接处焊缝开裂,将冷却器解体，对泄漏的焊缝进行补焊，并进行压力测试。,管束长期在振动和温度变化下，焊缝产生疲劳裂纹。,"{""photo_leak"": [""PHOTO_HRM2_R3_COOLER_LEAK_20240811_1635.jpg""], ""maintenance_manual"": ""Manual_Air_Water_Cooler.pdf#page=18""}"
+F-2024-0165,1#层流冷却区,LFC1-INTERCOM,2024/8/12 9:30,现场一台工业对讲机无法通话，只有噪音。,对讲机手柄的按键开关接触不良。,更换新的对讲机手柄后通话恢复正常。,按键开关是易损件，达到使用寿命。,{"maintenance_log": "Log_Intercom_System_2024.xlsx"}
+F-2024-0166,2#加热炉 炉压控制,FURN2-PRESSURE-VALVE,2024/8/12 15:00,炉压控制挡板的电动执行器卡死，无法调节。,执行器内部的齿轮损坏,拆解电动执行器，发现其减速齿轮箱内一个塑料齿轮已断齿。更换齿轮组件。,塑料齿轮老化变脆。,"{""photo_damage"": [""PHOTO_FURN2_ACTUATOR_GEAR_BROKEN_20240812_1600.jpg""], ""maintenance_manual"": ""Manual_Electric_Actuator_AUMA.pdf#page=30""}"
+F-2024-0167,1#精轧机 F3机架,HRM1-RF3-HMI,2024/8/13 11:00,现场操作台的急停按钮被人按下，但无法查明原因。,未知,复位急停按钮，检查设备状态正常后，恢复生产。加强现场人员管理。,可能是人员误操作。,{"maintenance_log": "Log_Emergency_Stops_2024.xlsx"}
+F-2024-0168,2#卷取机 C1区域,COILER1-PHOTOEYE,2024/8/13 17:00,用于检测钢卷套筒的光电开关信号不稳定。,光电开关的镜头上有灰尘，且对射不正。,清洁光电开关镜头，并重新调整发射器和接收器的对射角度。信号恢复稳定。,设备振动导致安装位置偏移。,"{""photo_internal"": [""PHOTO_COILER1_PHOTOEYE_MISALIGNED_20240813_1710.jpg""], ""electrical_drawing"": ""Drawing_E_COILER1_Sensors.pdf""}"
+F-2024-0169,1#粗轧机 R1电机,HRM1-R1-VIB,2024/8/14 10:00,R1电机振动监测探头信号丢失。,振动探头前置器故障,检查探头和延伸电缆正常。更换前置器后，信号恢复。,前置器电子元件老化。,"{""photo_damage"": [""PHOTO_HRM1_R1_VIB_PREAMP_FAIL_20240814_1020.jpg""], ""maintenance_manual"": ""Manual_Bently_Nevada_3300.pdf#page=50""}"
+F-2024-0170,2#精轧机 F5机架,HRM2-RF5-COOLANT,2024/8/14 16:30,乳化液系统磁性分离器效果差，液体中含铁量高。,磁性分离器的刮板磨损，无法有效清除吸附的铁屑。,更换新的刮板，并调整其与磁鼓的间隙。,刮板是易损件，正常磨损。,"{""photo_damage"": [""PHOTO_HRM2_RF5_MAGNETIC_SEPARATOR_BLADE_WORN_20240814_1645.jpg""], ""maintenance_manual"": ""Manual_Magnetic_Separator.pdf#page=11""}"
+F-2024-0171,1#加热炉 烧嘴风机,FURN1-BURNER-FAN,2024/8/15 11:00,烧嘴助燃风机入口过滤器压差大报警。,过滤器滤芯堵塞,更换新的过滤器滤芯。,滤芯达到使用寿命。,"{""photo_internal"": [""PHOTO_FURN1_FAN_FILTER_CLOGGED_20240815_1110.jpg""], ""maintenance_manual"": ""Manual_Furnace_Fan.pdf#page=15""}"
+F-2024-0172,2#卷取机 C2区域,COILER2-UPENDER,2024/8/15 17:00,钢卷翻卷机液压缸速度不受控制，动作过快。,液压缸上的节流阀失效，处于全开位置。,更换节流阀后，速度恢复正常。,阀芯被杂质卡住或内部密封损坏。,"{""schematics"": ""Schematic_Upender_Hydraulic.pdf"", ""photo_damage"": [""PHOTO_COILER2_THROTTLE_VALVE_FAIL_20240815_1720.jpg""]}"
+F-2024-0173,1#精轧机 F6机架,HRM1-RF6-SENSOR,2024/8/16 10:00,F6出口板形仪通讯中断。,板形仪的控制电脑死机,重启控制电脑后，通讯恢复正常。,电脑操作系统不稳定或软件冲突。,{"maintenance_log": "Log_Shape_Meter_2024.xlsx"}
+F-2024-0174,2#粗轧机 R2减速箱,HRM2-R2-GEARBOX-LUB,2024/8/16 16:30,减速箱润滑站的一台油泵无法启动，电机空转。,泵与电机之间的联轴器弹性体损坏,更换联轴器弹性体。,弹性体老化。,"{""photo_damage"": [""PHOTO_HRM2_R2_PUMP_COUPLING_BROKEN_20240816_1640.jpg""], ""schematics"": ""Schematic_HRM2_Lubrication_System.pdf#page=4""}"
+F-2024-0175,1#层流冷却区,LFC1-GAS-CUTTER,2024/8/17 9:30,用于事故状态下切断带钢的火焰切割机点不着火。,点火用的丙烷气瓶空了。,更换新的丙烷气瓶。,日常点检疏忽，未检查气瓶压力。,{"maintenance_log": "Log_Emergency_Cutter_2024.xlsx"}
+F-2024-0176,2#加热炉 废热锅炉,FURN2-WASTE-HEAT-BOILER,2024/8/17 15:00,废热锅炉给水泵出口压力低。,给水泵叶轮磨损严重,拆解水泵，发现叶轮被水中杂质磨损，间隙过大。更换新的叶轮。,给水水质不佳，含有硬质颗粒。,"{""photo_damage"": [""PHOTO_FURN2_BOILER_PUMP_IMPELLER_WORN_20240817_1700.jpg""], ""maintenance_manual"": ""Manual_Boiler_Feed_Pump.pdf#page=25""}"
+F-2024-0177,1#精轧机 F2机架,HRM1-RF2-DEFLECTOR,2024/8/18 11:00,F2机架出口的导卫板磨损严重，划伤了钢带边缘。,导卫板材料硬度不足。,更换新的由高铬合金制造的导卫板。,原导卫板材料选择不当。,"{""photo_damage"": [""PHOTO_HRM1_RF2_SIDE_GUIDE_WORN_20240818_1110.jpg"", ""PHOTO_STEEL_STRIP_EDGE_SCRATCH_20240818_1055.jpg""], ""drawing"": ""Drawing_A_Side_Guide.pdf""}"
+F-2024-0178,2#卷取机 C1区域,COILER1-SCALE,2024/8/18 17:00,钢卷称重台示数不准，存在漂移。,称重传感器接线盒进水，导致信号不稳定。,打开接线盒，发现内部有积水。用电吹风吹干，并重新做好防水密封。重新标定后，称重恢复准确。,接线盒密封老化。,"{""photo_internal"": [""PHOTO_COILER1_SCALE_JUNCTION_BOX_WATER_20240818_1715.jpg""], ""maintenance_manual"": ""Manual_Coil_Scale.pdf#page=18""}"
+F-2024-0179,1#粗轧机 R1电机,HRM1-R1-ENCODER,2024/8/19 10:00,电机编码器信号丢失，检查发现编码器外壳破碎。,编码器被外物撞击,更换新的编码器，并为其加装防护罩。,维护作业时，工具掉落砸坏了编码器。,"{""photo_damage"": [""PHOTO_HRM1_R1_ENCODER_BROKEN_20240819_1010.jpg""], ""electrical_drawing"": ""Drawing_E_HRM1_R1_Control.pdf""}"
+F-2024-0180,2#精轧机 F4机架,HRM2-RF4-BUR,2024/8/19 16:30,F4机架下支撑辊窜出时卡住。,支撑辊轴承座的导轨上有异物（如一块小螺母）。,清理导轨后，支撑辊窜出正常。,现场清洁和管理不善。,"{""photo_internal"": [""PHOTO_HRM2_RF4_BUR_RAIL_STUCK_20240819_1640.jpg""], ""maintenance_manual"": ""Manual_BackupRoll_Change.pdf#page=12""}"
+F-2024-0181,1#加热炉 电视系统,FURN1-CCTV,2024/8/20 11:00,炉内监控摄像头图像有雪花干扰。,视频信号电缆屏蔽层接地不良,检查从摄像头到监视器的视频电缆，发现在监视器一端的屏蔽层接地线松动。重新接好后，干扰消失。,接地线未压紧。,{"maintenance_manual": "Manual_CCTV_System.pdf#page=21"}
+F-2024-0182,2#卷取机 C2皮带机,COILER2-BELT,2024/8/20 17:00,用于运输废边的皮带跑偏严重，几乎要掉下来。,皮带机托辊严重磨损，导致皮带受力不均。,更换所有磨损的托辊，并重新调整皮带张紧度和位置。,托辊轴承损坏后未及时更换，导致托辊外壳被磨穿。,"{""photo_damage"": [""PHOTO_COILER2_BELT_IDLER_WORN_20240820_1720.jpg""], ""maintenance_manual"": ""Manual_Belt_Conveyor.pdf#page=16""}"
+F-2024-0183,1#精轧机 F5机架,HRM1-RF5-GAUGE,2024/8/21 10:00,F5出口的激光速度仪读数异常。,速度仪的激光窗口被乳化液污染,清洁激光窗口后，读数恢复正常。,吹扫保护空气压力不足。,"{""photo_internal"": [""PHOTO_HRM1_RF5_LASER_GAUGE_DIRTY_20240821_1010.jpg""], ""maintenance_manual"": ""Manual_Laser_Speed_Gauge.pdf#page=14""}"
+F-2024-0184,2#粗轧机 R2电机,HRM2-R2-LUB,2024/8/21 16:30,电机轴承自动润滑系统不泵油。,润滑脂泵的出口单向阀卡死。,拆解润滑脂泵，清洗出口单向阀。系统恢复正常。,使用的润滑脂混入杂质。,"{""schematics"": ""Schematic_Auto_Lube_System.pdf"", ""photo_internal"": [""PHOTO_HRM2_R2_LUB_PUMP_VALVE_STUCK_20240821_1700.jpg""]}"
+F-2024-0185,1#层流冷却区,LFC1-TEMP-GAUGE,2024/8/22 9:30,一个水温表指示在120度，明显不准。,双金属温度计的感温元件损坏,更换新的温度计。,温度计质量问题或受到外力撞击。,"{""photo_damage"": [""PHOTO_LFC1_TEMP_GAUGE_BROKEN_20240822_0935.jpg""], ""maintenance_log"": ""Log_LFC1_Instruments_2024.xlsx""}"
+F-2024-0186,2#加热炉 主控室,FURN2-CONTROL-ROOM,2024/8/22 15:00,操作台一台电脑频繁蓝屏死机。,电脑CPU风扇故障，导致CPU过热。,打开电脑机箱，发现CPU散热风扇被灰尘堵死，不转动。清理灰尘并更换风扇后，电脑恢复稳定。,机房环境清洁度不够。,"{""photo_internal"": [""PHOTO_FURN2_PC_FAN_DUSTY_20240822_1510.jpg""], ""maintenance_log"": ""Log_Control_Room_PCs_2024.xlsx""}"
+F-2024-0187,1#精轧机 F1机架,HRM1-RF1-COOLING,2024/8/23 11:00,工作辊冷却水的一根软管接头脱落，水喷得到处都是。,软管接头的卡箍锈蚀断裂,更换新的不锈钢卡箍，并重新固定软管。,原卡箍材质为普通碳钢，不耐腐蚀。,"{""photo_damage"": [""PHOTO_HRM1_RF1_HOSE_CLAMP_BROKEN_20240823_1105.jpg""], ""schematics"": ""Schematic_HRM1_Cooling_System.pdf#page=12""}"
+F-2024-0188,2#卷取机 C1区域,COILER1-TENSION,2024/8/23 17:00,卷取机张力控制不稳，导致钢卷卷形不佳（塔形）。,张力测量辊的传感器信号不稳定,检查张力测量辊两端的压力传感器，发现一侧的接线有松动。重新紧固后，张力信号平稳，卷形恢复正常。,振动导致接线松动。,"{""timeseries_data"": [""PLC_COILER1_TENSION_FLUCTUATE_20240823_1655.csv""], ""electrical_drawing"": ""Drawing_E_COILER1_Tension_Control.pdf""}"
+F-2024-0189,1#粗轧机 R3电机,HRM1-R3-BRAKE,2024/8/24 10:00,电机机械刹车无法松开。,刹车电磁铁线圈烧毁,测量电磁铁线圈电阻为无穷大。更换线圈后，刹车正常松开。,电压过高或线圈质量问题。,"{""photo_damage"": [""PHOTO_HRM1_R3_BRAKE_COIL_BURNED_20240824_1030.jpg""], ""electrical_drawing"": ""Drawing_E_HRM1_R3_Motor.pdf""}"
+F-2024-0190,2#精轧机 F6机架,HRM2-RF6-SENSOR,2024/8/24 16:30,F6出口高温计防护玻璃被飞溅的钢渣击碎。,防护措施不足,更换新的耐高温石英玻璃，并加装一个简易的金属挡板。,生产事故。,"{""photo_damage"": [""PHOTO_HRM2_RF6_PYROMETER_GLASS_BROKEN_20240824_1635.jpg""], ""maintenance_log"": ""Log_HRM2_Instruments_2024.xlsx""}"
+F-2024-0191,1#加热炉 煤气总管,FURN1-GAS-MAIN,2024/8/25 11:00,煤气总管压力异常低，影响所有烧嘴燃烧。,煤气总管前的水封被击穿，大量煤气从水封泄漏。,紧急关闭上游阀门。重新向水封注水至规定高度。恢复供气，压力正常。,水封未按规定定期检查和补水。,"{""schematics"": ""Schematic_FURN1_Gas_System.pdf"", ""maintenance_log"": ""Log_FURN1_Safety_Devices_2024.xlsx""}"
+F-2024-0192,2#卷取机 C2助卷辊,COILER2-PINCHROLL-HYD,2024/8/25 17:00,助卷辊压力不稳，来回波动。,压力控制用的比例减压阀内部有污染物，导致阀芯动作不顺畅。,拆下比例减压阀进行清洗。装回后压力稳定。,液压油清洁度差。,"{""timeseries_data"": [""PLC_COILER2_PINCHROLL_PRESSURE_FLUCTUATE_20240825_1655.csv""], ""schematics"": ""Schematic_COILER2_Hydraulic_System.pdf#page=19""}"
+F-2024-0193,1#精轧机 F4机架,HRM1-RF4-SENSOR,2024/8/26 10:00,F4入口的宽度仪通讯电缆被叉车压断。,电缆布线不合理，暴露在运输通道上。,更换整段通讯电缆，并将其改为从桥架上走线。,安全管理和规划不到位。,"{""photo_damage"": [""PHOTO_HRM1_RF4_CABLE_CRUSHED_20240826_1005.jpg""], ""schematics"": ""Schematic_Network_Topology_HRM1.pdf""}"
+F-2024-0194,2#粗轧机 R1电机,HRM2-R1-BEARING,2024/8/26 16:30,R1主电机驱动侧轴承振动值超标，频谱中出现外圈故障特征频率。,驱动侧轴承外圈出现裂纹,停机，更换电机驱动侧轴承。检查换下的轴承，发现外圈有一条贯穿裂纹。,轴承安装不当，或受到巨大冲击。,"{""vibration"": [""VIB_HRM2_R1_DRV_BEARING_FAIL_20240826_1625.csv""], ""photo_damage"": [""PHOTO_HRM2_R1_BEARING_CRACKED_20240826_1800.jpg""], ""maintenance_manual"": ""Manual_RollingMill_Motor.pdf#page=45""}"
+F-2024-0195,1#层流冷却区,LFC1-CABLE-TRAY,2024/8/27 9:30,一处电缆桥架因锈蚀严重而垮塌，导致多根电缆悬空。,桥架材质为普通碳钢，在潮湿环境下锈蚀严重。,使用新的热镀锌电缆桥架进行替换。,材料选型不当。,"{""photo_damage"": [""PHOTO_LFC1_CABLE_TRAY_COLLAPSED_20240827_0935.jpg""], ""maintenance_log"": ""Log_Civil_Structures_2024.xlsx""}"
+F-2024-0196,2#加热炉 主控PLC,FURN2-PLC,2024/8/27 15:00,PLC的一个数字量输入模块所有通道均无输入。,输入模块的公共端保险丝烧断。,更换模块上的保险丝后，输入恢复正常。,外部线路存在瞬间短路，导致保险丝熔断。,"{""electrical_drawing"": ""Drawing_E_FURN2_PLC_IO.pdf"", ""photo_internal"": [""PHOTO_FURN2_PLC_MODULE_FUSE_BLOWN_20240827_1510.jpg""]}"
+F-2024-0197,1#精轧机 F6机架,HRM1-RF6-MOTOR,2024/8/28 11:00,F6主电机励磁电流为0，无法建立磁场。,励磁回路的熔断器熔断,检查励磁控制柜，发现快速熔断器已熔断。更换后，励磁恢复正常。,励磁调节器出现故障，导致瞬间电流过大。,"{""electrical_drawing"": ""Drawing_E_HRM1_RF6_Excitation.pdf"", ""photo_damage"": [""PHOTO_HRM1_RF6_EXCITATION_FUSE_BLOWN_20240828_1110.jpg""]}"
+F-2024-0198,2#卷取机 C1区域,COILER1-AIR-LEAK,2024/8/28 17:00,压缩空气系统压力持续下降，可以听到明显的漏气声。,一根气管的快插接头松脱，导致漏气。,重新插紧快插接头，漏气声消失，压力恢复。,接头质量不佳或安装不到位。,"{""photo_leak"": [""PHOTO_COILER1_AIR_PIPE_LEAK_20240828_1705.jpg""], ""schematics"": ""Schematic_Pneumatic_System.pdf""}"
+F-2024-0199,1#粗轧机 R2电机,HRM1-R2-TEMP,2024/8/29 10:00,电机绕组温度测量不准，读数偏低。,绕组内的Pt100热电阻传感器损坏,更换埋在绕组内的Pt100传感器。,传感器质量问题或在电机大修过程中受损。,"{""maintenance_log"": ""Log_HRM1_R2_MOTOR_2024.xlsx"", ""electrical_drawing"": ""Drawing_E_HRM1_R2_Motor.pdf""}"
+F-2024-0200,2#精轧机 F7机架,HRM2-RF7-DRIVE,2024/8/29 16:30,F7主电机驱动柜柜门风扇过滤器堵塞严重，导致柜内温度过高。,过滤器未按期清理或更换。,更换新的过滤器棉。柜内温度下降。,维护保养计划未有效执行。,"{""photo_internal"": [""PHOTO_HRM2_RF7_DRIVE_FILTER_CLOGGED_20240829_1635.jpg""], ""thermal_image"": [""IMG_HRM2_RF7_DRIVE_CABINET_HOT_20240829_1632.jpg""], ""maintenance_manual"": ""Manual_Drive_Cabinet_Maintenance.pdf#page=12""}"
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
